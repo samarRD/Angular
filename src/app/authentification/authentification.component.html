@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./authentification.component.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form_box">
+        <div class="logo_container">
+            <h1>me<span>zz</span>o HR</h1>
+        </div>
+        <form [formGroup]="authentification" (ngSubmit)="onSubmit()">
+
+        <div style="display:flex ;flex-direction:row;justify-content: space-between;">
+            <div class="input_container">
+                <label for="cin"><p>CIN</p></label>
+                <input type="text" formControlName="cin" placeholder="CIN...">
+              <small *ngIf="authentification.controls['cin'].touched &&authentification.controls['cin'].hasError('required')">*saisir votre numero de cin</small>
+
+              <small *ngIf="authentification.controls['cin'].hasError('maxLength')||authentification.controls['cin'].hasError('minLength')||authentification.controls['cin'].hasError('pattern')">*numero cin invalide</small></div>
+              <div class="input_container">
+                <label for="password"><p>Mot de passe</p></label>
+                <input type="password" formControlName="password" placeholder="Mot de passe...">
+                <small *ngIf="authentification.controls['password'].touched &&authentification.controls['password'].hasError('required')">saisir un mot de passe </small>
+                <div *ngIf="isSubmitted &&authentification.controls['password'].errors">
+                <small *ngIf="authentification.controls['password'].hasError('minLength')">*mot de passe invalide</small>
+             </div> </div>
+
+        </div>
+        <div style="display:flex;justify-content: center;margin-top: 40px;" >
+            <button class="buttonSubmit" type="submit" [disabled]="!authentification.valid" >Connexion</button>
+
+          </div>
+          <div> <a routerLink="/Inscription">Créer un compte </a></div>
+        </form>
+    </div>
+</body>
+</html>

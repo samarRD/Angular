@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./inscription-form.component.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form_box">
+        <div class="logo_container">
+            <h1>me<span>zz</span>o HR</h1>
+        </div>
+        <form [formGroup]="Inscriptionform" (ngSubmit)="onSubmit()">
+        <div style="display:flex ;flex-direction:row;justify-content: space-between;">
+            <div class="input_container">
+                <label for="nom"><p>Nom</p></label>
+                <input type="text" formControlName="nom" placeholder="Nom...">
+
+                  <small *ngIf="Inscriptionform.controls['nom'].touched&&Inscriptionform.controls['nom'].hasError('required')">*saisir un nom</small>
+
+                  <small *ngIf="Inscriptionform.controls['nom'].hasError('pattern')" >*nom invalide </small></div>
+
+            <div class="input_container">
+                <label for="prenom"><p>Prénom</p></label>
+                <input type="text"formControlName="prenom" placeholder="Prénom...">
+              <small *ngIf="Inscriptionform.controls['prenom'].touched &&Inscriptionform.controls['prenom'].hasError('required')">*saisir un prenom</small>
+
+              <small *ngIf="Inscriptionform.controls['prenom'].hasError('pattern')" >*prenom invalide</small>
+
+            </div>
+        </div>
+        <div style="display:flex ;flex-direction:row;justify-content: space-between;">
+            <div class="input_container">
+                <label for="cin"><p>CIN</p></label>
+                <input type="text" formControlName="cin" placeholder="CIN...">
+              <small *ngIf="Inscriptionform.controls['cin'].touched &&Inscriptionform.controls['cin'].hasError('required')">*saisir votre numero de cin</small>
+
+              <small *ngIf="Inscriptionform.controls['cin'].hasError('maxLength')||Inscriptionform.controls['cin'].hasError('minLength')||Inscriptionform.controls['cin'].hasError('pattern')">*numero cin invalide</small></div>
+
+            <div class="input_container">
+                <label for="email"><p>Email</p></label>
+                <input type="email"formControlName="email" placeholder="exemple@exemple.com...">
+                <small *ngIf="Inscriptionform.controls['email'].touched &&Inscriptionform.controls['email'].hasError('required')">*saisir un email</small>
+
+                <small *ngIf="Inscriptionform.controls['email'].hasError('email')">*email invalid</small></div>
+
+        </div>
+        <div style="display:flex ;flex-direction:row;justify-content:space-between;">
+            <div class="input_container">
+                <label for="password"><p>Mot de passe</p></label>
+                <input type="password" formControlName="password" placeholder="Mot de passe...">
+                <small *ngIf="Inscriptionform.controls['password'].touched &&Inscriptionform.controls['password'].hasError('required')">saisir un mot de passe </small>
+                <div *ngIf="isSubmitted &&Inscriptionform.controls['password'].errors">
+                <small *ngIf="Inscriptionform.controls['password'].hasError('minLength')">*mot de passe invalide</small>
+             </div> </div>
+            <div class="input_container">
+                <label for="password_confirmation"><p>Confirmation </p></label>
+                <input type="password" formControlName="password_confirmation" placeholder="Confirmer...">
+                <small *ngIf="Inscriptionform.controls['password_confirmation'].touched &&Inscriptionform.controls['password_confirmation'].hasError('required')">*confirmer votre mot de passe </small>
+                <small *ngIf="Inscriptionform.controls['password_confirmation'].hasError('MustMatch')">*Mot de passe compte ne correspond pas</small>
+
+
+              </div>
+        </div>
+        <div style="display:flex;justify-content: center;margin-top: 40px;" >
+            <button class="buttonSubmit" type="submit" [disabled]="!Inscriptionform.valid" >S'inscrire</button>
+          </div>
+          <div> <a routerLink="/authentification">J'ai déja un compte </a></div>
+
+        </form>
+    </div>
+
+</body>
+
+</html>
