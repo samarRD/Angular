@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators} from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-inscription-form',
@@ -26,37 +27,52 @@ export class InscriptionFormComponent implements OnInit {
       cin:new FormControl('',[Validators.required,Validators.maxLength(8),Validators.minLength(8),Validators.pattern("[1-9]*")]),
       email:new FormControl('',[Validators.required,Validators.email]),
       password:new FormControl('',[Validators.required,Validators.minLength(8)]),
-      password_confirmation:new FormControl('',Validators.required)},
-      //{
-       // validators:this.MustMatch('password','password_confirmation')}
+      password_confirmation:new FormControl('',Validators.required),
+      dateEmbauche: new FormControl('',Validators.required),
+      departement:new FormControl ('autre', [Validators.required])},
+      {validators:InscriptionFormComponent.passwordMatch('password','password_confirmation')}
        )}
 
     onSubmit(){
 console.log(this.Inscriptionform);
-
-      this.isSubmitted=true;
   if (this.Inscriptionform.invalid) {
       return;
     }
+    this.isSubmitted=true;
 
 
    alert('Inscription validé!! )');
 
     }
 
-    MustMatch(pwd:string,pwdc:string) {
-      return (formGroup:FormGroup) => {
-        const control = formGroup.controls[pwd];
-        const matchingControl = formGroup.controls[pwdc];
+    static passwordMatch(password: string, confirmPassword: string) {
+      return (formGroup: AbstractControl): ValidationErrors | null => {
+        const passwordControl = formGroup.get(password);
+        const confirmPasswordControl = formGroup.get(confirmPassword);
 
-        if (matchingControl.errors && !matchingControl.errors['MustMatch']) {
-          return;}
-      if (control.value !== matchingControl.value) {
-          matchingControl.setErrors({MustMatch: true });
-      }
-      else {
-          matchingControl.setErrors(null);}
+        if (!passwordControl || !confirmPasswordControl) {
+          return null;
+        }
+
+        if (
+          confirmPasswordControl.errors &&!confirmPasswordControl.errors["passwordMismatch"]
+        ) {
+          return null;
+        }
+
+        if (passwordControl.value !== confirmPasswordControl.value) {
+          confirmPasswordControl.setErrors({ passwordMismatch: true });
+          return { passwordMismatch: true };
+        } else {
+          confirmPasswordControl.setErrors(null);
+          return null;
+        }
+      };
     }
-    }}
+
+
+
+
+  }
 
 

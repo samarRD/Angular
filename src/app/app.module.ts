@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { InscriptionFormComponent } from './inscription-form/inscription-form.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { ModifierCompteComponent } from './modifier-compte/modifier-compte.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     InscriptionFormComponent,
-    AuthentificationComponent
+    AuthentificationComponent,
+    DashboardAdminComponent,
+    ModifierCompteComponent
      ],
   imports: [
     BrowserModule,

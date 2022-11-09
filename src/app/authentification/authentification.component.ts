@@ -14,7 +14,7 @@ export class AuthentificationComponent implements OnInit {
   ngOnInit(): void {
     this.authentification= new FormGroup({
 
-      cin:new FormControl('',[Validators.required,Validators.maxLength(8),Validators.minLength(8),Validators.pattern("[1-9]*")]),
+      email:new FormControl('',[Validators.required,Validators.email]),
       password:new FormControl('',[Validators.required,Validators.minLength(8)]),
    },
       //{
@@ -22,7 +22,6 @@ export class AuthentificationComponent implements OnInit {
        )}
 
     onSubmit(){
-console.log(this.authentification);
 
       this.isSubmitted=true;
   if (this.authentification.invalid) {

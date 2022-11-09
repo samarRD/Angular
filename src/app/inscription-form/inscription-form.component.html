@@ -58,16 +58,42 @@
                 <small *ngIf="Inscriptionform.controls['password'].hasError('minLength')">*mot de passe invalide</small>
              </div> </div>
             <div class="input_container">
-                <label for="password_confirmation"><p>Confirmation </p></label>
-                <input type="password" formControlName="password_confirmation" placeholder="Confirmer...">
+                <label for="password_confirmation"><p>Confirmation de mot de passe </p></label>
+                <input type="password" formControlName="password_confirmation" placeholder="Confirmer..." >
                 <small *ngIf="Inscriptionform.controls['password_confirmation'].touched &&Inscriptionform.controls['password_confirmation'].hasError('required')">*confirmer votre mot de passe </small>
-                <small *ngIf="Inscriptionform.controls['password_confirmation'].hasError('MustMatch')">*Mot de passe compte ne correspond pas</small>
+                <small *ngIf="Inscriptionform.controls['password_confirmation']?.hasError('passwordMatch')">*Mot de passe compte ne correspond pas</small>
+
+
+              </div>
+        </div>
+        <div style="display:flex ;flex-direction:row;justify-content:space-between;">
+            <div class="input_container">
+                <label for="dateEmbauche"><p>Date d'embauche </p></label>
+                <input type="date" formControlName="dateEmbauche" >
+                <small *ngIf="Inscriptionform.controls['dateEmbauche'].touched &&Inscriptionform.controls['dateEmbauche'].hasError('required')">Date d'emabouche est obligatoire  </small>
+               </div>
+            <div class="input_container">
+                <label for="departement"><p>Département </p></label>
+                <select name="departement" formControlName="departement" id="departement">
+                  <option value="Département RH">Département RH</option>
+                  <option value="Département IT">Département IT</option>
+                  <option value="Direction financière">Direction financière</option>
+                  <option value="Département marketing">Département marketing</option>
+                  <option value="Direction générale">Direction générale</option>
+                  <option value="Service commercial">Service commercial</option>
+                  <option value="Département juridique">Département juridique</option>
+                  <option value="autre">autre</option>
+
+
+
+                </select>
+                <small *ngIf="Inscriptionform.controls['password_confirmation'].touched &&Inscriptionform.controls['password_confirmation'].hasError('required')">*choisir votre département </small>
 
 
               </div>
         </div>
         <div style="display:flex;justify-content: center;margin-top: 40px;" >
-            <button class="buttonSubmit" type="submit" [disabled]="!Inscriptionform.valid" >S'inscrire</button>
+            <button class="buttonSubmit" type="submit " [disabled]="!Inscriptionform.valid" >S'inscrire</button>
           </div>
           <div> <a routerLink="/authentification">J'ai déja un compte </a></div>
 

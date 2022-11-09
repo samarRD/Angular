@@ -18,20 +18,21 @@
 
         <div style="display:flex ;flex-direction:row;justify-content: space-between;">
             <div class="input_container">
-                <label for="cin"><p>CIN</p></label>
-                <input type="text" formControlName="cin" placeholder="CIN...">
-              <small *ngIf="authentification.controls['cin'].touched &&authentification.controls['cin'].hasError('required')">*saisir votre numero de cin</small>
+              <label for="email"><p>Email</p></label>
+              <input type="email"formControlName="email" placeholder="exemple@exemple.com...">
+              <small *ngIf="authentification.controls['email'].touched &&authentification.controls['email'].hasError('required')">*saisir un email</small>
 
-              <small *ngIf="authentification.controls['cin'].hasError('maxLength')||authentification.controls['cin'].hasError('minLength')||authentification.controls['cin'].hasError('pattern')">*numero cin invalide</small></div>
+              <small *ngIf="authentification.controls['email'].hasError('email')">*email invalid</small></div>
+
               <div class="input_container">
                 <label for="password"><p>Mot de passe</p></label>
                 <input type="password" formControlName="password" placeholder="Mot de passe...">
                 <small *ngIf="authentification.controls['password'].touched &&authentification.controls['password'].hasError('required')">saisir un mot de passe </small>
                 <div *ngIf="isSubmitted &&authentification.controls['password'].errors">
                 <small *ngIf="authentification.controls['password'].hasError('minLength')">*mot de passe invalide</small>
-             </div> </div>
+             </div> </div></div>
 
-        </div>
+
         <div style="display:flex;justify-content: center;margin-top: 40px;" >
             <button class="buttonSubmit" type="submit" [disabled]="!authentification.valid" >Connexion</button>
 
