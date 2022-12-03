@@ -22,13 +22,13 @@ export class InscriptionFormComponent implements OnInit {
   ngOnInit(): void {
 
     this.Inscriptionform= new FormGroup({
-      nom: new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
-      prenom:new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
-      cin:new FormControl('',[Validators.required,Validators.maxLength(8),Validators.minLength(8),Validators.pattern("[1-9]*")]),
+      firstName: new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
+      lastName:new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
+      role:new FormControl ('Employé(e)', [Validators.required]),
       email:new FormControl('',[Validators.required,Validators.email]),
       password:new FormControl('',[Validators.required,Validators.minLength(8)]),
       password_confirmation:new FormControl('',Validators.required),
-      dateEmbauche: new FormControl('',Validators.required),
+      hiringDate: new FormControl('',Validators.required),
       departement:new FormControl ('autre', [Validators.required])},
       {validators:InscriptionFormComponent.passwordMatch('password','password_confirmation')}
        )}

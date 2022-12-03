@@ -11,35 +11,36 @@
 </head>
 <body>
     <div class="form_box">
+
         <div class="logo_container">
-            <h1>me<span>zz</span>o HR</h1>
+            <h1>INSCRIPTION</h1>
         </div>
         <form [formGroup]="Inscriptionform" (ngSubmit)="onSubmit()">
         <div style="display:flex ;flex-direction:row;justify-content: space-between;">
             <div class="input_container">
-                <label for="nom"><p>Nom</p></label>
-                <input type="text" formControlName="nom" placeholder="Nom...">
+                <label for="firstName"><p>Nom</p></label>
+                <input type="text" formControlName="firstName" placeholder="Nom...">
 
-                  <small *ngIf="Inscriptionform.controls['nom'].touched&&Inscriptionform.controls['nom'].hasError('required')">*saisir un nom</small>
+                  <small *ngIf="Inscriptionform.controls['firstName'].touched&&Inscriptionform.controls['firstName'].hasError('required')">*saisir un nom</small>
 
-                  <small *ngIf="Inscriptionform.controls['nom'].hasError('pattern')" >*nom invalide </small></div>
+                  <small *ngIf="Inscriptionform.controls['firstName'].hasError('pattern')" >*nom invalide </small></div>
 
             <div class="input_container">
-                <label for="prenom"><p>Prénom</p></label>
-                <input type="text"formControlName="prenom" placeholder="Prénom...">
-              <small *ngIf="Inscriptionform.controls['prenom'].touched &&Inscriptionform.controls['prenom'].hasError('required')">*saisir un prenom</small>
+                <label for="lastName"><p>Prénom</p></label>
+                <input type="text"formControlName="lastName" placeholder="Prénom...">
+              <small *ngIf="Inscriptionform.controls['lastName'].touched &&Inscriptionform.controls['lastName'].hasError('required')">*saisir un prenom</small>
 
-              <small *ngIf="Inscriptionform.controls['prenom'].hasError('pattern')" >*prenom invalide</small>
+              <small *ngIf="Inscriptionform.controls['lastName'].hasError('pattern')" >*prenom invalide</small>
 
             </div>
         </div>
         <div style="display:flex ;flex-direction:row;justify-content: space-between;">
             <div class="input_container">
-                <label for="cin"><p>CIN</p></label>
-                <input type="text" formControlName="cin" placeholder="CIN...">
-              <small *ngIf="Inscriptionform.controls['cin'].touched &&Inscriptionform.controls['cin'].hasError('required')">*saisir votre numero de cin</small>
-
-              <small *ngIf="Inscriptionform.controls['cin'].hasError('maxLength')||Inscriptionform.controls['cin'].hasError('minLength')||Inscriptionform.controls['cin'].hasError('pattern')">*numero cin invalide</small></div>
+              <label for="Role"><p>Votre Role </p></label>
+              <select name="role" formControlName="role" >
+                <option value="Responsable RH">Responsable RH</option>
+                <option value="Employé(e)">Employé(e)</option>
+                </select></div>
 
             <div class="input_container">
                 <label for="email"><p>Email</p></label>
@@ -68,9 +69,9 @@
         </div>
         <div style="display:flex ;flex-direction:row;justify-content:space-between;">
             <div class="input_container">
-                <label for="dateEmbauche"><p>Date d'embauche </p></label>
-                <input type="date" formControlName="dateEmbauche" >
-                <small *ngIf="Inscriptionform.controls['dateEmbauche'].touched &&Inscriptionform.controls['dateEmbauche'].hasError('required')">Date d'emabouche est obligatoire  </small>
+                <label for="hiringDate"><p>Date d'embauche </p></label>
+                <input type="date" formControlName="hiringDate" >
+                <small *ngIf="Inscriptionform.controls['hiringDate'].touched &&Inscriptionform.controls['hiringDate'].hasError('required')">Date d'emabouche est obligatoire  </small>
                </div>
             <div class="input_container">
                 <label for="departement"><p>Département </p></label>

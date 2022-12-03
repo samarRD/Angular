@@ -10,34 +10,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="logo_container">
+    <h1>me<span>zz</span>o HR</h1>
+    <h2> GÉREZ VOTRE PERSONNEL AVEC SUCCÈS</h2>
+</div>
     <div class="form_box">
-        <div class="logo_container">
-            <h1>me<span>zz</span>o HR</h1>
-        </div>
+
         <form [formGroup]="authentification" (ngSubmit)="onSubmit()">
 
-        <div style="display:flex ;flex-direction:row;justify-content: space-between;">
+
             <div class="input_container">
-              <label for="email"><p>Email</p></label>
-              <input type="email"formControlName="email" placeholder="exemple@exemple.com...">
+              <input type="email"formControlName="email" placeholder="Email...">
               <small *ngIf="authentification.controls['email'].touched &&authentification.controls['email'].hasError('required')">*saisir un email</small>
 
               <small *ngIf="authentification.controls['email'].hasError('email')">*email invalid</small></div>
 
               <div class="input_container">
-                <label for="password"><p>Mot de passe</p></label>
                 <input type="password" formControlName="password" placeholder="Mot de passe...">
                 <small *ngIf="authentification.controls['password'].touched &&authentification.controls['password'].hasError('required')">saisir un mot de passe </small>
                 <div *ngIf="isSubmitted &&authentification.controls['password'].errors">
                 <small *ngIf="authentification.controls['password'].hasError('minLength')">*mot de passe invalide</small>
-             </div> </div></div>
+             </div></div>
 
 
         <div style="display:flex;justify-content: center;margin-top: 40px;" >
             <button class="buttonSubmit" type="submit" [disabled]="!authentification.valid" >Connexion</button>
 
           </div>
-          <div> <a routerLink="/Inscription">Créer un compte </a></div>
+          <div> <a class="link" routerLink="/Inscription">Créer un compte </a></div>
         </form>
     </div>
 </body>

@@ -1,33 +1,43 @@
+
 body{
-  background-color: #394b7a36;
+  margin: 0px;
+  height: 821px;
+  width: 100%;
+  font-size: 5mm;
+  flex-direction: row;
   font-family:'Roboto',Arial, Helvetica, sans-serif;
   display: flex;
   justify-content: center;
-  vertical-align: middle;
-
+background-image:url(../../assets/bg1.jpg) ;
+background-color: #050050;
+-webkit-background-size:cover;
+-o-background-size:cover;
+-moz-background-size:cover;
+background-size:cover;
 }
 
-
 .form_box{
-  margin-top: 20px;
-  margin-bottom: 20px;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
   flex-direction: column;
-  background-color: #ffffffc7;
+
+  background-color: #eee5e580;
   align-items: center;
   min-width: fit-content;
-  border-radius: 15px;
-  padding: 50px 10px 50px 10px;
-  box-shadow: 1px 4px 10px #888888;
+  border-radius: 10px;
+  padding: 40px ;
+  box-shadow: 1px 1px 10px #888888;
 }
 .logo_container h1 {
   font-weight: bolder;
-  font-size: 11mm;
+  font-size: 19mm;
  text-align: center;
 }
 .logo_container span{
   color:#192953a1 ;}
 p{
-  margin:15px 0 015px 0;
+  margin:10px 0 10px 0;
   font-weight: bold;
 }
 
@@ -35,11 +45,12 @@ p{
 .input_container{
   display: flex;
   flex-direction: column;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 input,select{
-
+  width: 300px;
+  height: 60px;
   border-style:solid;
   border-width: 1px;
   border-color: #88888885;
@@ -51,10 +62,11 @@ input,select{
 
 .buttonSubmit{
   cursor: pointer;
-  padding: 10px 80px;
-  border-radius:25px ;
-  background-color:rgba(19, 19, 75, 0.938) ;
-  font-size: 5mm;
+  padding: 20px 80px;
+  border-radius:10px ;
+  background-color:rgb(19, 19, 75) ;
+  margin-bottom: 5px;
+  font-size: 6mm;
   border: none;
   color: white;
   box-shadow: 3px 2px 10px #8888886b;
@@ -74,4 +86,11 @@ small{
   font-size: 3mm;
   color: rgb(185, 5, 5);
 
+}
+ a{
+  color: #0a0820;
+
+}
+a:hover{
+  color: #2d258b;
 }
