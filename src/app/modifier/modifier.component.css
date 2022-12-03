@@ -1,0 +1,60 @@
+
+body{
+  height: 821px;
+
+  font-size: 5mm;
+  font-family:'Roboto',Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: row;
+align-items: center;
+justify-content: space-between;
+  background-image:url(../../assets/img/modi.png) ;
+background-color: #050050;
+-webkit-background-size:cover;
+-o-background-size:cover;
+-moz-background-size:cover;
+background-size:cover;
+margin: 0;
+justify-content: center;
+}
+
+
+
+form{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex-direction: column;
+
+  background-color: #eee5e580;
+  align-items: center;
+  min-width: fit-content;
+  border-radius: 10px;
+  padding: 40px ;
+  box-shadow: 1px 1px 10px #888888;
+}
+form .corps-formulaire{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+
+}
+
+form .corps-formulaire .groupe{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+form.corps-formulaire .gauche .groupe i{
+  position: absolute;
+  left: 0;
+  top: 25px;
+  padding: 9px 8 px;
+  color: rgb(97, 7, 180);
+
+}
+
+form .pied-formulaire button:hover{
+  transform: scale(1.05);
+}

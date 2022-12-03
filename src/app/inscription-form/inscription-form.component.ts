@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../Service/user.service';
 
 
 @Component({
@@ -11,9 +12,39 @@ import { Router } from '@angular/router';
 export class InscriptionFormComponent implements OnInit {
   Inscriptionform!:FormGroup;
   isSubmitted:boolean=false;
+  constructor(private router: Router,private userService: UserService){}
+
+  static passwordMatch(password: string, confirmPassword: string) {
+    return (formGroup: AbstractControl): ValidationErrors | null => {
+      const passwordControl = formGroup.get(password);
+      const confirmPasswordControl = formGroup.get(confirmPassword);
+
+      if (!passwordControl || !confirmPasswordControl) {
+        return null;
+      }
+
+      if (
+        confirmPasswordControl.errors &&!confirmPasswordControl.errors["passwordMismatch"]
+      ) {
+        return null;
+      }
+
+      if (passwordControl.value !== confirmPasswordControl.value) {
+        confirmPasswordControl.setErrors({ passwordMismatch: true });
+        return { passwordMismatch: true };
+      } else {
+        confirmPasswordControl.setErrors(null);
+        return null;
+      }
+    };
+  }
 
 
-  constructor(private router: Router){}
+
+
+
+
+
 
   navigate(){
     this.router.navigate(['/authentification'])
@@ -33,46 +64,95 @@ export class InscriptionFormComponent implements OnInit {
       {validators:InscriptionFormComponent.passwordMatch('password','password_confirmation')}
        )}
 
+
+
+
+
+
+       get email(){
+        return this.Inscriptionform.get("email");
+      }
+      get nom(){
+        return this.Inscriptionform.get("nom");
+      }
+      get prenom(){
+        return this.Inscriptionform.get("prenom");
+      }
+      get role(){
+        return this.Inscriptionform.get("role");
+      }
+      get password(){
+        return this.Inscriptionform.get("password");
+      }
+      get hiringDate(){
+        return this.Inscriptionform.get("hiringDate");
+      }
+      get departement(){
+        return this.Inscriptionform.get("departement");
+      }
+
+
+
+
     onSubmit(){
-console.log(this.Inscriptionform);
-  if (this.Inscriptionform.invalid) {
-      return;
-    }
-    this.isSubmitted=true;
 
-
-   alert('Inscription validé!! )');
-
-    }
-
-    static passwordMatch(password: string, confirmPassword: string) {
-      return (formGroup: AbstractControl): ValidationErrors | null => {
-        const passwordControl = formGroup.get(password);
-        const confirmPasswordControl = formGroup.get(confirmPassword);
-
-        if (!passwordControl || !confirmPasswordControl) {
-          return null;
+      this.isSubmitted = true;
+      if(!this.Inscriptionform.invalid){
+        const user ={
+          "firstname" : this.nom?.value,
+          "lastname"  : this.prenom?.value,
+          "email"     : this.email?.value,
+          "role"     : this.role?.value,
+          "password"  : this.password?.value,
+          "hiring_date": this.hiringDate?.value,
+          "dept": this.departement?.value,
         }
 
-        if (
-          confirmPasswordControl.errors &&!confirmPasswordControl.errors["passwordMismatch"]
-        ) {
-          return null;
-        }
+        
+        this.userService.register(user).subscribe({
+          next: (data :any) =>{
+            const LoginInfo = {'email' : this.email?.value,'password' : this.password?.value};
+            this.userService.register(LoginInfo).subscribe({
+              next: (data :any) =>{
+                this.userService.saveToken(data.id);
+                window.location.reload();
+                this.router.navigate(['/home']);
 
-        if (passwordControl.value !== confirmPasswordControl.value) {
-          confirmPasswordControl.setErrors({ passwordMismatch: true });
-          return { passwordMismatch: true };
-        } else {
-          confirmPasswordControl.setErrors(null);
-          return null;
-        }
-      };
+              },
+              error: (err : Error) => {
+                console.log(err.message, '❌');
+              }
+            });
+          },
+          error: (err : any) => {
+            console.log(err);
+            console.log(err.message)
+          }
+        })
+      }else{
+        console.log("Enter a valid informations !!!", '❌');
+      }
+    }
     }
 
 
 
 
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

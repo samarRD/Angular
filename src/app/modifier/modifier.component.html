@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ajouter utilisateur</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <b><img src="assets/img/domicialisation.jpg" text="mezzo-hr" alt="50px" width="50px" height="50px"></b>
+    <div class="bg-image"
+    style="background-image: url('https://www.codeur.com/tuto/wp-content/uploads/2022/01/pexels-roberto-nickson-2559941-1.jpg');
+           height: 100vh">
+</div>
+  </head>
+
+<body>
+
+
+      <form  (ngSubmit)="onSubmit()">
+        <div style="display:flex ;flex-direction:row;justify-content: space-between;">
+            <div class="input_container">
+                <label for="firstName"><p>Nom</p></label>
+                <input type="text" formControlName="firstName" placeholder="Nom..." value="{{C.firstname}}">
+
+                  <small *ngIf="Modifierform.controls['firstName'].touched&&Modifierform.controls['firstName'].hasError('required')">*saisir un nom</small>
+
+                  <small *ngIf="Modifierform.controls['firstName'].hasError('pattern')" >*nom invalide </small></div>
+
+            <div class="input_container">
+                <label for="lastName"><p>Prénom</p></label>
+                <input type="text"formControlName="lastName" placeholder="Prénom..." value="{{C.lastname}}">
+              <small *ngIf="Modifierform.controls['lastName'].touched &&Modifierform.controls['lastName'].hasError('required')">*saisir un prenom</small>
+
+              <small *ngIf="Modifierform.controls['lastName'].hasError('pattern')" >*prenom invalide</small>
+
+            </div>
+        </div>
+        <div style="display:flex ;flex-direction:row;justify-content: space-between;">
+            <div class="input_container">
+              <label for="Role"><p>Votre Role </p></label>
+              <select name="role" formControlName="role" >
+                <option value="Responsable RH">Responsable RH</option>
+                <option value="Employé(e)">Employé(e)</option>
+                </select></div>
+
+            <div class="input_container">
+                <label for="email"><p>Email</p></label>
+                <input type="email"formControlName="email" placeholder="exemple@exemple.com..." value="{{C.email}}">
+                <small *ngIf="Modifierform.controls['email'].touched &&Modifierform.controls['email'].hasError('required')" >*saisir un email</small>
+
+                <small *ngIf="Modifierform.controls['email'].hasError('email')">*email invalid</small></div>
+
+        </div>
+        <div style="display:flex ;flex-direction:row;justify-content:space-between;">
+            <div class="input_container">
+                <label for="password"><p>Mot de passe</p></label>
+                <input type="password" formControlName="password" placeholder="Mot de passe..." value="{{C.password}}" >
+                <small *ngIf="Modifierform.controls['password'].touched &&Modifierform.controls['password'].hasError('required')">saisir un mot de passe </small>
+                <div *ngIf="isSubmitted &&Modifierform.controls['password'].errors">
+                <small *ngIf="Modifierform.controls['password'].hasError('minLength')">*mot de passe invalide</small>
+             </div> </div>
+            <div class="input_container">
+                <label for="password_confirmation"><p>Confirmation de mot de passe </p></label>
+                <input type="password" formControlName="password_confirmation" placeholder="Confirmer..." value="{{C.password}}">
+                <small *ngIf="Modifierform.controls['password_confirmation'].touched &&Modifierform.controls['password_confirmation'].hasError('required')">*confirmer votre mot de passe </small>
+                <small *ngIf="Modifierform.controls['password_confirmation']?.hasError('passwordMatch')">*Mot de passe compte ne correspond pas</small>
+
+
+              </div>
+        </div>
+        <div style="display:flex ;flex-direction:row;justify-content:space-between;">
+            <div class="input_container">
+                <label for="hiringDate"><p>Date d'embauche </p></label>
+                <input type="date" formControlName="hiringDate" >
+                <small *ngIf="Modifierform.controls['hiringDate'].touched &&Modifierform.controls['hiringDate'].hasError('required')">Date d'emabouche est obligatoire  </small>
+               </div>
+            <div class="input_container">
+                <label for="departement"><p>Département </p></label>
+                <select name="departement" formControlName="departement" id="departement">
+                  <option value="Département RH">Département RH</option>
+                  <option value="Département IT">Département IT</option>
+                  <option value="Direction financière">Direction financière</option>
+                  <option value="Département marketing">Département marketing</option>
+                  <option value="Direction générale">Direction générale</option>
+                  <option value="Service commercial">Service commercial</option>
+                  <option value="Département juridique">Département juridique</option>
+                  <option value="autre">autre</option>
+
+
+
+                </select>
+                <small *ngIf="Modifierform.controls['password_confirmation'].touched &&Modifierform.controls['password_confirmation'].hasError('required')">*choisir votre département </small>
+
+
+              </div>
+        </div>
+        <div style="display:flex;justify-content: center;margin-top: 40px;" >
+            <button class="buttonSubmit" type="submit "  > Modifier</button>
+          </div>
+
+        </form>
+
+</body>
+</html>

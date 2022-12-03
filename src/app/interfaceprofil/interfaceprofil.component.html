@@ -1,0 +1,115 @@
+
+<nav class="navbar navbar-rouge" style="background-color: #d4d8e2a1;">
+  <a class="navbar-brand"></a>
+    <marquee behavior="alternate">
+      <div class="logo_container">
+        <h1>me<span>zz</span>o HR</h1>
+    </div>
+        </marquee>
+</nav>
+
+ <!-- Sidebar -->
+ <!-- This script got from frontendfreecode.com -->
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+        <div class="p-4 pt-5">
+          <div class="profile-img">
+            <img src="assets/img/profil2.jpg" />
+            <div class="file btn btn-lg btn-primary">
+                Changer Photo
+                <input type="file" name="file"/>
+            </div>
+        </div>
+            <ul class="list-unstyled components mb-5">
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Modifier profil</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+
+                      <a class="navigation-link" href="/modifier">
+                        <button type="button" class="btn btn-info" style="text-align: right;" >Modifier </button>
+                      </a>
+
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Accueil</a>
+                </li>
+
+
+
+            </ul>
+            <div class="footer">
+
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle Menu</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Déconnexion</a>
+                      </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="col-md-8">
+          <div class="tab-content profile-tab" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">first name</th>
+                      <th scope="col">Last name</th>
+                      <th scope="col">email</th>
+                      <th scope="col">password</th>
+                      <th scope="col">role</th>
+                      <th scope="col">department</th>
+                      <th scope="col">hiring_date</th>
+                      <th scope="col">actions</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let user of userData">
+                      <th scope="row">{{user.id}}</th>
+                      <td>{{user.firstname}}</td>
+                      <td>{{user.lastname}}</td>
+                      <td>{{user.email}}</td>
+                      <td>{{user.password}}</td>
+                      <td>{{user.role}}</td>
+                      <td>{{user.department}}</td>
+                      <td>{{user.hiring_date}}</td>
+<td>                      <button type="button" class="btn btn-danger" (click)="delete(user.id)" >supprimer</button>
+  <button type="button" class="btn btn-warning" routerLink="/modifier/{{user.id}}">modifier</button></td>
+                    </tr>
+
+                  </tbody>
+                </table>              <hr class="my-4">
+
+                      </div>
+                  </div>
+
+    </div>
+</div><a style="font-size: 8pt; text-decoration: none" target="_blank" href="http://frontendfreecode.com"></a>
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+

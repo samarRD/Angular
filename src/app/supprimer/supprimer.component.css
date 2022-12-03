@@ -1,0 +1,46 @@
+
+body{
+  background-color: blanchedalmond;
+  margin: 0px;
+
+  padding: 0px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,50%);
+  font-family: 'Roboto,sans-serif';
+  font-weight: bold;
+
+}
+form{
+background-color: rgb(248, 243, 236);
+padding: 30px;
+border-radius: 10px;
+
+}
+form .corps-formulaire{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+
+}
+
+form .corps-formulaire .groupe{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+form.corps-formulaire .gauche .groupe i{
+  position: absolute;
+  left: 0;
+  top: 25px;
+  padding: 9px 8 px;
+  color: rgb(97, 7, 180);
+
+}
+
+form .pied-formulaire button:hover{
+  transform: scale(1.05);
+}
