@@ -16,11 +16,11 @@
 <body>
 
 
-      <form  (ngSubmit)="onSubmit()">
+      <form [formGroup]="Modifierform" (ngSubmit)="onSubmit()" *ngIf="C">
         <div style="display:flex ;flex-direction:row;justify-content: space-between;">
             <div class="input_container">
                 <label for="firstName"><p>Nom</p></label>
-                <input type="text" formControlName="firstName" placeholder="Nom..." value="{{C.firstname}}">
+                <input type="text" formControlName="firstName" placeholder="Nom..." >
 
                   <small *ngIf="Modifierform.controls['firstName'].touched&&Modifierform.controls['firstName'].hasError('required')">*saisir un nom</small>
 
@@ -28,7 +28,7 @@
 
             <div class="input_container">
                 <label for="lastName"><p>Prénom</p></label>
-                <input type="text"formControlName="lastName" placeholder="Prénom..." value="{{C.lastname}}">
+                <input type="text"formControlName="lastName" placeholder="Prénom...">
               <small *ngIf="Modifierform.controls['lastName'].touched &&Modifierform.controls['lastName'].hasError('required')">*saisir un prenom</small>
 
               <small *ngIf="Modifierform.controls['lastName'].hasError('pattern')" >*prenom invalide</small>
@@ -45,7 +45,7 @@
 
             <div class="input_container">
                 <label for="email"><p>Email</p></label>
-                <input type="email"formControlName="email" placeholder="exemple@exemple.com..." value="{{C.email}}">
+                <input type="email"formControlName="email" placeholder="exemple@exemple.com...">
                 <small *ngIf="Modifierform.controls['email'].touched &&Modifierform.controls['email'].hasError('required')" >*saisir un email</small>
 
                 <small *ngIf="Modifierform.controls['email'].hasError('email')">*email invalid</small></div>
@@ -54,14 +54,14 @@
         <div style="display:flex ;flex-direction:row;justify-content:space-between;">
             <div class="input_container">
                 <label for="password"><p>Mot de passe</p></label>
-                <input type="password" formControlName="password" placeholder="Mot de passe..." value="{{C.password}}" >
+                <input type="password" formControlName="password" placeholder="Mot de passe..." >
                 <small *ngIf="Modifierform.controls['password'].touched &&Modifierform.controls['password'].hasError('required')">saisir un mot de passe </small>
                 <div *ngIf="isSubmitted &&Modifierform.controls['password'].errors">
                 <small *ngIf="Modifierform.controls['password'].hasError('minLength')">*mot de passe invalide</small>
              </div> </div>
             <div class="input_container">
                 <label for="password_confirmation"><p>Confirmation de mot de passe </p></label>
-                <input type="password" formControlName="password_confirmation" placeholder="Confirmer..." value="{{C.password}}">
+                <input type="password" formControlName="password_confirmation" placeholder="Confirmer...">
                 <small *ngIf="Modifierform.controls['password_confirmation'].touched &&Modifierform.controls['password_confirmation'].hasError('required')">*confirmer votre mot de passe </small>
                 <small *ngIf="Modifierform.controls['password_confirmation']?.hasError('passwordMatch')">*Mot de passe compte ne correspond pas</small>
 

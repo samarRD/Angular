@@ -9,19 +9,22 @@ import { UserService } from './../Service/user.service';
 export class InterfaceprofilComponent implements OnInit {
 
   constructor(private UserService : UserService) { }
-  userData : any ={};
+  userData : any =[];
   ngOnInit(): void {
     this.refreshProfile()
   }
   refreshProfile(){
     this.UserService.getAll().subscribe(res => {
       this.userData = res;
-      console.log(res)
     })
 
   }
 
   delete(id : number){
     this.UserService.Delete(id).subscribe((res : any) => {alert(res)})
+  }
+
+  signout(){
+    this.UserService.signOut();
   }
 }

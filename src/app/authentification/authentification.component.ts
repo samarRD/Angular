@@ -40,9 +40,8 @@ export class AuthentificationComponent implements OnInit {
     this.userService.login(LoginInfo)
     .subscribe({
       next: (data :any) =>{
-        this.userService.saveToken(data.id);
-        console.log(data.id);
-        this.route.navigate(['/home']);
+        this.userService.saveToken(data.id,data.role);
+        this.route.navigate(['/dashboard']);
       },
       error: (err : Error) => {
         this.errorMessage = err.message;

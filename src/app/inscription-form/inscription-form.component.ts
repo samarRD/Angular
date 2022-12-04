@@ -108,15 +108,15 @@ export class InscriptionFormComponent implements OnInit {
           "dept": this.departement?.value,
         }
 
-        
+
         this.userService.register(user).subscribe({
           next: (data :any) =>{
             const LoginInfo = {'email' : this.email?.value,'password' : this.password?.value};
             this.userService.register(LoginInfo).subscribe({
               next: (data :any) =>{
-                this.userService.saveToken(data.id);
+                this.userService.saveToken(data.id,data.role);
                 window.location.reload();
-                this.router.navigate(['/home']);
+                this.router.navigate(['/dashboard']);
 
               },
               error: (err : Error) => {

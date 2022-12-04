@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 const  APIUrlUser ="http://localhost:8080/user";
 const ID_KEY = 'auth-id';
-
+const ROLE_KEY ="Role";
 
 @Injectable({
   providedIn: 'root'
@@ -27,9 +27,9 @@ export class UserService {
   getAll(): Observable<any> {
     return this.http.get<any[]>(APIUrlUser);
   }
-  Update(id: any, data :any): Observable<any> {
+  Update(data :any): Observable<any> {
 
-    return this.http.put(`${APIUrlUser}/${id}`,data);
+    return this.http.put(APIUrlUser,data);
   }
   Delete(id: any): Observable<any> {
     return this.http.delete(APIUrlUser +'/' +id);
@@ -38,13 +38,18 @@ export class UserService {
     window.sessionStorage.clear();
   }
 
-  public saveToken(id :string): void {
+  public saveToken(id :string,role : string): void {
     window.sessionStorage.removeItem(ID_KEY);
     window.sessionStorage.setItem(ID_KEY, id);
+    window.sessionStorage.setItem(ROLE_KEY, role);
+
   }
 
   public getToken(): string | null {
     return window.sessionStorage.getItem(ID_KEY) !== null ? window.sessionStorage.getItem(ID_KEY) : null  ;
+  }
+  public getRole(): string | null {
+    return window.sessionStorage.getItem(ROLE_KEY) !== null ? window.sessionStorage.getItem(ROLE_KEY) : null  ;
   }
 
 

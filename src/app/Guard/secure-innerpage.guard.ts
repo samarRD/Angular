@@ -7,11 +7,11 @@ import { UserService } from './../Service/user.service';
   providedIn: 'root'
 })
 export class SecureInnerpageGuard implements CanActivate {
-  constructor(public UserService: UserService, public router: Router) {}
+  constructor(public tokenStorageService: UserService, public router: Router) {}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if(this.UserService.getToken() !== null) {
+    if(this.tokenStorageService.getToken() !== null) {
       console.log("Access Denied !!!");
       this.router.navigate(['/dashboard']);
     }

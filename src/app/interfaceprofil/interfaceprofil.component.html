@@ -3,7 +3,7 @@
   <a class="navbar-brand"></a>
     <marquee behavior="alternate">
       <div class="logo_container">
-        <h1>me<span>zz</span>o HR</h1>
+        <h1>me<span>zz</span>o HR Dashboard Admin</h1>
     </div>
         </marquee>
 </nav>
@@ -11,61 +11,8 @@
  <!-- Sidebar -->
  <!-- This script got from frontendfreecode.com -->
 <div class="wrapper d-flex align-items-stretch">
-    <nav id="sidebar">
-        <div class="p-4 pt-5">
-          <div class="profile-img">
-            <img src="assets/img/profil2.jpg" />
-            <div class="file btn btn-lg btn-primary">
-                Changer Photo
-                <input type="file" name="file"/>
-            </div>
-        </div>
-            <ul class="list-unstyled components mb-5">
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Modifier profil</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-
-                      <a class="navigation-link" href="/modifier">
-                        <button type="button" class="btn btn-info" style="text-align: right;" >Modifier </button>
-                      </a>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Accueil</a>
-                </li>
-
-
-
-            </ul>
-            <div class="footer">
-
-            </div>
-        </div>
-    </nav>
     <!-- Page Content  -->
     <div id="content" class="p-4 p-md-5">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                    <i class="fa fa-bars"></i>
-                    <span class="sr-only">Toggle Menu</span>
-                </button>
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav ml-auto">
-
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">Déconnexion</a>
-                      </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
         <div class="col-md-8">
           <div class="tab-content profile-tab" id="myTabContent">
               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -80,7 +27,9 @@
                       <th scope="col">role</th>
                       <th scope="col">department</th>
                       <th scope="col">hiring_date</th>
-                      <th scope="col">actions</th>
+                      <th scope="col">Supprimer</th>
+                      <th scope="col">Modifer</th>
+
 
                     </tr>
                   </thead>
@@ -94,8 +43,8 @@
                       <td>{{user.role}}</td>
                       <td>{{user.department}}</td>
                       <td>{{user.hiring_date}}</td>
-<td>                      <button type="button" class="btn btn-danger" (click)="delete(user.id)" >supprimer</button>
-  <button type="button" class="btn btn-warning" routerLink="/modifier/{{user.id}}">modifier</button></td>
+                      <td><button type="button" class="btn btn-danger" (click)="delete(user.id)" >supprimer</button></td>
+                      <td><button type="button" class="btn btn-warning" routerLink="/modifier/{{user.id}}">modifier</button></td>
                     </tr>
 
                   </tbody>

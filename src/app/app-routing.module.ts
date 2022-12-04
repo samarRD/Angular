@@ -8,18 +8,19 @@ import { AjouterComponent } from './ajouter/ajouter.component';
 import { SupprimerComponent } from './supprimer/supprimer.component';
 import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
 import { InterfaceprofilComponent } from './interfaceprofil/interfaceprofil.component';
+import { SecureInnerpageGuard } from './Guard/secure-innerpage.guard';
+import { AuthGuard } from './Guard/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'Inscription', component:InscriptionFormComponent},
- { path: 'authentification', component:AuthentificationComponent},
+  { path: 'Inscription', component:InscriptionFormComponent , canActivate:   [SecureInnerpageGuard]},
+ { path: 'authentification', component:AuthentificationComponent, canActivate: [SecureInnerpageGuard]},
  { path: '',redirectTo:'/authentification',pathMatch:'full'},
- {path : 'dashboard' , component : DashboardAdminComponent},
- {path : "ajouter" , component : AjouterComponent},
- {path : "supprimer" , component : SupprimerComponent},
- {path : "admin" , component : EspaceAdminComponent},
- {path : "profile" , component : InterfaceprofilComponent},
- {path : "modifier/:id" , component : ModifierComponent},
+ {path : 'dashboard' , component : DashboardAdminComponent ,canActivate:[AuthGuard]},
+
+
+ {path : "admin" , component : InterfaceprofilComponent,canActivate:[AuthGuard]},
+ {path : "modifier/:id" , component : ModifierComponent ,canActivate:[AuthGuard]},
 
 
 
