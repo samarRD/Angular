@@ -13,7 +13,7 @@ export class SecureInnerpageGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if(this.tokenStorageService.getToken() !== null) {
       console.log("Access Denied !!!");
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/home']);
     }
     return true;
     }

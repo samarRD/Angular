@@ -74,19 +74,16 @@
                 <small *ngIf="Inscriptionform.controls['hiringDate'].touched &&Inscriptionform.controls['hiringDate'].hasError('required')">Date d'emabouche est obligatoire  </small>
                </div>
             <div class="input_container">
-                <label for="departement"><p>Département </p></label>
+                <label for="deplabel"><p>Département </p></label>
                 <select name="departement" formControlName="departement" id="departement">
-                  <option value="Département RH">Département RH</option>
-                  <option value="Département IT">Département IT</option>
+                  <option value="Département RH" >Département RH</option>
+                  <option value="Département IT" selected>Département IT</option>
                   <option value="Direction financière">Direction financière</option>
                   <option value="Département marketing">Département marketing</option>
                   <option value="Direction générale">Direction générale</option>
                   <option value="Service commercial">Service commercial</option>
                   <option value="Département juridique">Département juridique</option>
                   <option value="autre">autre</option>
-
-
-
                 </select>
                 <small *ngIf="Inscriptionform.controls['password_confirmation'].touched &&Inscriptionform.controls['password_confirmation'].hasError('required')">*choisir votre département </small>
 

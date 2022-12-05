@@ -16,15 +16,19 @@ export class InterfaceprofilComponent implements OnInit {
   refreshProfile(){
     this.UserService.getAll().subscribe(res => {
       this.userData = res;
+      console.log(this.userData);
+
     })
 
   }
-
+  // confiramtion(){
+  //confiramtion du compte
   delete(id : number){
-    this.UserService.Delete(id).subscribe((res : any) => {alert(res)})
+   if(confirm("Are you sure to delete this user?")){
+     this.UserService.Delete(id).subscribe(res => {
+       this.refreshProfile();
+     })
+   }
   }
 
-  signout(){
-    this.UserService.signOut();
-  }
 }

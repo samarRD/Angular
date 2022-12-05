@@ -40,12 +40,19 @@ export class AuthentificationComponent implements OnInit {
     this.userService.login(LoginInfo)
     .subscribe({
       next: (data :any) =>{
-        this.userService.saveToken(data.id,data.role);
-        this.route.navigate(['/dashboard']);
+       if(data !== null){
+        if(data.status == true){
+          this.userService.saveToken(data.id,data.role);
+          this.route.navigate(['/home']);
+        }else{
+          alert("vous n'ete pas accepter d'aprés l'admin");
+        }
+       }else{
+       alert("The user name or password are incorrect. This is easily corrected by typing the correct user name and password.❌");
+       }
       },
       error: (err : Error) => {
         this.errorMessage = err.message;
-        console.log("The user name or password are incorrect. This is easily corrected by typing the correct user name and password.", '❌');
         console.log(err)
       }
     });

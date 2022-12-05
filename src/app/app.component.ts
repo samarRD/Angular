@@ -13,4 +13,26 @@ export class AppComponent {
     this.UserService.signOut();
     window.location.reload();
   }
+
+
+  role(){
+    let role = this.UserService.getRole() as string;
+    if(role == "Responsable RH"){
+      return "Responsable RH";
+    }else if(role == "Admin"){
+      return "Admin";
+    }
+    return "Employé(e)";
+  }
+
+
+isUserAuthenticated() {
+    const token: string = this.UserService.getToken() as string;
+    if (token != null) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }

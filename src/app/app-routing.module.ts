@@ -4,23 +4,28 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { ModifierComponent } from './modifier/modifier.component';
-import { AjouterComponent } from './ajouter/ajouter.component';
-import { SupprimerComponent } from './supprimer/supprimer.component';
-import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
 import { InterfaceprofilComponent } from './interfaceprofil/interfaceprofil.component';
 import { SecureInnerpageGuard } from './Guard/secure-innerpage.guard';
 import { AuthGuard } from './Guard/auth.guard';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
   { path: 'Inscription', component:InscriptionFormComponent , canActivate:   [SecureInnerpageGuard]},
  { path: 'authentification', component:AuthentificationComponent, canActivate: [SecureInnerpageGuard]},
  { path: '',redirectTo:'/authentification',pathMatch:'full'},
- {path : 'dashboard' , component : DashboardAdminComponent ,canActivate:[AuthGuard]},
+ {path : 'admin' , component : DashboardAdminComponent ,canActivate:[AuthGuard],data: {
+  role: ['Admin']
+}},
+ {path : 'home' , component : HomeComponent ,canActivate:[AuthGuard]},
 
 
- {path : "admin" , component : InterfaceprofilComponent,canActivate:[AuthGuard]},
- {path : "modifier/:id" , component : ModifierComponent ,canActivate:[AuthGuard]},
+ {path : "rh" , component : InterfaceprofilComponent,canActivate:[AuthGuard],data: {
+  role: ['Responsable RH','Admin']
+}},
+ {path : "modifier/:id" , component : ModifierComponent ,canActivate:[AuthGuard],data: {
+  role: ['Responsable RH','Admin']
+}},
 
 
 

@@ -12,8 +12,15 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+      const role = this.authService.getRole();
+      if(next.data['role'] && next.data['role'].indexOf(role) === -1) {
+        this.router.navigate(['/home']);
+        alert("Access Denied to non-owned role!!!");
+        return false;
+      }
+
     if(this.authService.getToken() === null) {
-      console.log("Access Denied !!!");
+      alert("Access Denied !!!");
       this.router.navigate(['/authentification'], { queryParams: { returnUrl: state.url } })
 
     }

@@ -3,7 +3,7 @@
   <a class="navbar-brand"></a>
     <marquee behavior="alternate">
       <div class="logo_container">
-        <h1>me<span>zz</span>o HR Dashboard Admin</h1>
+        <h1>me<span>zz</span>o HR Dashboard RH</h1>
     </div>
         </marquee>
 </nav>
@@ -41,7 +41,7 @@
                       <td>{{user.email}}</td>
                       <td>{{user.password}}</td>
                       <td>{{user.role}}</td>
-                      <td>{{user.department}}</td>
+                      <td>{{user.dept}}</td>
                       <td>{{user.hiring_date}}</td>
                       <td><button type="button" class="btn btn-danger" (click)="delete(user.id)" >supprimer</button></td>
                       <td><button type="button" class="btn btn-warning" routerLink="/modifier/{{user.id}}">modifier</button></td>
@@ -56,9 +56,5 @@
     </div>
 </div><a style="font-size: 8pt; text-decoration: none" target="_blank" href="http://frontendfreecode.com"></a>
 
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 

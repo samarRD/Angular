@@ -60,10 +60,9 @@ export class InscriptionFormComponent implements OnInit {
       password:new FormControl('',[Validators.required,Validators.minLength(8)]),
       password_confirmation:new FormControl('',Validators.required),
       hiringDate: new FormControl('',Validators.required),
-      departement:new FormControl ('autre', [Validators.required])},
+      departement:new FormControl ('', [Validators.required])},
       {validators:InscriptionFormComponent.passwordMatch('password','password_confirmation')}
        )}
-
 
 
 
@@ -73,10 +72,10 @@ export class InscriptionFormComponent implements OnInit {
         return this.Inscriptionform.get("email");
       }
       get nom(){
-        return this.Inscriptionform.get("nom");
+        return this.Inscriptionform.get("firstName");
       }
       get prenom(){
-        return this.Inscriptionform.get("prenom");
+        return this.Inscriptionform.get("lastName");
       }
       get role(){
         return this.Inscriptionform.get("role");
@@ -105,18 +104,18 @@ export class InscriptionFormComponent implements OnInit {
           "role"     : this.role?.value,
           "password"  : this.password?.value,
           "hiring_date": this.hiringDate?.value,
-          "dept": this.departement?.value,
+          "dept": this.departement?.value
         }
 
 
         this.userService.register(user).subscribe({
           next: (data :any) =>{
             const LoginInfo = {'email' : this.email?.value,'password' : this.password?.value};
-            this.userService.register(LoginInfo).subscribe({
+            this.userService.login(LoginInfo).subscribe({
               next: (data :any) =>{
                 this.userService.saveToken(data.id,data.role);
                 window.location.reload();
-                this.router.navigate(['/dashboard']);
+                this.router.navigate(['/home']);
 
               },
               error: (err : Error) => {
@@ -125,7 +124,6 @@ export class InscriptionFormComponent implements OnInit {
             });
           },
           error: (err : any) => {
-            console.log(err);
             console.log(err.message)
           }
         })

@@ -57,7 +57,7 @@ export class ModifierComponent implements OnInit {
           Validators.required,
           Validators.minLength(8),
         ]),
-        password_confirmation: new FormControl("", Validators.required),
+        password_confirmation: new FormControl(this.C?.password, Validators.required),
         hiringDate: new FormControl(this.C?.hiring_date, Validators.required),
         departement: new FormControl(this.C?.dept, [Validators.required]),
       },
