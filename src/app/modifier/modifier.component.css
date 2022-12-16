@@ -1,26 +1,16 @@
 
-body{
-  height: 821px;
+
+.page{
 
   font-size: 5mm;
-  font-family:'Roboto',Arial, Helvetica, sans-serif;
-  display: flex;
   flex-direction: row;
-align-items: center;
-justify-content: space-between;
-  background-image:url(../../assets/img/modi.png) ;
-background-color: #050050;
--webkit-background-size:cover;
--o-background-size:cover;
--moz-background-size:cover;
-background-size:cover;
-margin: 0;
-justify-content: center;
+
+  justify-content: center;
+
 }
 
+.form_box{
 
-
-form{
   margin-top: 10px;
   margin-bottom: 10px;
   flex-direction: column;
@@ -32,12 +22,86 @@ form{
   padding: 40px ;
   box-shadow: 1px 1px 10px #888888;
 }
-form .corps-formulaire{
+.logo_container h1 {
+  font-weight: bolder;
+  font-size: 19mm;
+ text-align: center;
+}
+.logo_container span{
+  color:#a8aab1da ;}
+p{
+  margin:10px 0 10px 50px;
+  font-weight: bold;
+}
+
+
+.input_container{
   display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
+  flex-direction: column;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+input,select{
+  width: 400px;
+  height: 50px;
+  margin-left: 50px;
+  border-style:solid;
+  border-width: 1px;
+  border-color: #88888885;
+  border-radius: 10px;
+  padding: 15px;
+
 
 }
+
+.buttonSubmit{
+  cursor: pointer;
+  padding: 20px;
+  width: 400px;
+  border-radius:10px ;
+  background-color:rgb(19, 19, 75) ;
+  margin-bottom: 5px;
+  font-size: 6mm;
+  border: none;
+  color: white;
+  box-shadow: 3px 2px 10px #8888886b;
+}
+
+.buttonSubmit:hover{
+transition: opacity 0.15s;
+  opacity: 0.8;
+}
+button:disabled{  opacity: 0.8;
+cursor:default;}
+input.ng-touched.ng-invalid{
+  border:2px solid rgb(185, 5, 5);
+
+}
+small{
+  font-size: 3mm;
+  color: rgb(185, 5, 5);
+
+}
+ a{
+  color: #0a0820;
+
+}
+a:hover{
+  color: #2d258b;
+}
+
+
+form{
+
+  flex-direction: column;
+
+  background-color: #eee5e5b4;
+  align-items: center;
+  min-width: fit-content;
+  padding: 40px ;
+  box-shadow: 1px 1px 10px #888888;
+}
+
 
 form .corps-formulaire .groupe{
   margin-top: 20px;

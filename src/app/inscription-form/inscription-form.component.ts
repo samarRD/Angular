@@ -110,18 +110,7 @@ export class InscriptionFormComponent implements OnInit {
 
         this.userService.register(user).subscribe({
           next: (data :any) =>{
-            const LoginInfo = {'email' : this.email?.value,'password' : this.password?.value};
-            this.userService.login(LoginInfo).subscribe({
-              next: (data :any) =>{
-                this.userService.saveToken(data.id,data.role);
-                window.location.reload();
-                this.router.navigate(['/home']);
-
-              },
-              error: (err : Error) => {
-                console.log(err.message, '❌');
-              }
-            });
+            this.router.navigate(['/login']);
           },
           error: (err : any) => {
             console.log(err.message)

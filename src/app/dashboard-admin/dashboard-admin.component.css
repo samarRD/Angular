@@ -1,18 +1,103 @@
-body{
 
-  font-family:'Roboto',Arial, Helvetica, sans-serif;
+.logo_container h1 {
+  color: rgba(255, 255, 255, 0.719);
+  font-weight: bolder;
+  font-size: 14mm;
+ text-align: center;
 }
+.logo_container span{
+  color:#192953a1 ;}
+
+.btn_supprimer{
+  cursor: pointer;
+  padding: 10px;
+  border-radius:10px ;
+  background-color:rgba(19, 19, 75, 0.719) ;
+  margin-bottom: 5px;
+  font-size: 3mm;
+  border: none;
+  color: white;
+  box-shadow: 3px 2px 10px #8888886b;
+}
+.btn_stat{
+  cursor: pointer;
+  padding: 10px;
+  border-radius:10px ;
+  background-color:rgba(57, 57, 68, 0.719) ;
+  margin-bottom: 5px;
+  font-size: 3mm;
+  border: none;
+  color: white;
+  box-shadow: 3px 2px 10px #8888886b;
+}
+.btn_acc{
+  cursor: pointer;
+  padding: 10px ;
+  border-radius:10px ;
+  background-color:rgba(112, 57, 114, 0.719) ;
+  margin-bottom: 5px;
+  font-size: 3mm;
+  border: none;
+  color: white;
+  box-shadow: 3px 2px 10px #8888886b;
+}
+.btn_ref{
+  cursor: pointer;
+  padding: 10px ;
+  border-radius:10px ;
+  background-color:rgba(57, 67, 114, 0.719) ;
+  margin-bottom: 5px;
+  font-size: 3mm;
+  margin-left: 10px;
+  border: none;
+  color: white;
+  box-shadow: 3px 2px 10px #8888886b;
+}
+.btn_modifier{
+  cursor: pointer;
+  padding: 10px ;
+  border-radius:10px ;
+  background-color:rgba(112, 35, 89, 0.719) ;
+  margin-bottom: 5px;
+  font-size: 3mm;
+  border: none;
+  color: white;
+  box-shadow: 3px 2px 10px #8888886b;
+}
+.btn_supprimer:hover{
+  transition: opacity 0.15s;
+    opacity: 0.8;
+  }
+  .btn_stat:hover{
+    transition: opacity 0.15s;
+      opacity: 0.8;
+    }
+.btn_modifier:hover{
+  transition: opacity 0.15s;
+    opacity: 0.8;
+  }
+  .btn_ref:hover{
+    transition: opacity 0.15s;
+      opacity: 0.8;
+    }
+  .btn_acc:hover{
+    transition: opacity 0.15s;
+      opacity: 0.8;
+    }
+  tr{
+    font-size: 3.2mm;
+    font-weight: bold;
+  }
 .dashboard_content{
-  display: flex;
-  flex-direction: column;
-  margin: 50px;
+  display: block;
+  background-color: #eee5e5ab;
+  align-items: center;
+  min-width: fit-content;
+  box-shadow: 1px 1px 10px #888888;
 }
 .dashboard_top{
   box-shadow: 1px 4px 10px #888888;
-  border-radius: 15px;
-  background-color: #ffffffc7;
-
-  margin-bottom:20px ;
+  background-color: #ffffff6e;
   padding: 20px;
   display: block;
   min-width: fit-content;
@@ -28,7 +113,7 @@ body{
 
 }
 .dashboard_top_content_img img{
-width: 500px;
+width: 700px;
 height: 300px;
 position: relative;
 top: -60px;

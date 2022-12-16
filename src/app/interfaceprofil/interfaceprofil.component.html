@@ -1,34 +1,30 @@
 
-<nav class="navbar navbar-rouge" style="background-color: #d4d8e2a1;">
+<link rel="stylesheet" href="interfaceprofil.component.css">
+
+
+<div class="page">
+<nav class="navbar navbar-rouge">
   <a class="navbar-brand"></a>
     <marquee behavior="alternate">
       <div class="logo_container">
-        <h1>me<span>zz</span>o HR Dashboard RH</h1>
+        <h1>ME<span>ZZ</span>O HR DASHBOARD RH</h1>
     </div>
         </marquee>
 </nav>
-
- <!-- Sidebar -->
- <!-- This script got from frontendfreecode.com -->
-<div class="wrapper d-flex align-items-stretch">
-    <!-- Page Content  -->
-    <div id="content" class="p-4 p-md-5">
-        <div class="col-md-8">
-          <div class="tab-content profile-tab" id="myTabContent">
-              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div id="content" class="content">
                 <table class="table">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">first name</th>
-                      <th scope="col">Last name</th>
-                      <th scope="col">email</th>
-                      <th scope="col">password</th>
-                      <th scope="col">role</th>
-                      <th scope="col">department</th>
-                      <th scope="col">hiring_date</th>
-                      <th scope="col">Supprimer</th>
-                      <th scope="col">Modifer</th>
+                      <th scope="col">PRENOM</th>
+                      <th scope="col">NOM</th>
+                      <th scope="col">EMAIL</th>
+                      <th scope="col">MOT DE PASSE</th>
+                      <th scope="col">ROLE</th>
+                      <th scope="col">DEPARTEMENT</th>
+                      <th scope="col">DATE D'EMBAUCHE</th>
+                      <th scope="col">SUPPRIMER</th>
+                      <th scope="col">MODIFIER</th>
 
 
                     </tr>
@@ -43,18 +39,10 @@
                       <td>{{user.role}}</td>
                       <td>{{user.dept}}</td>
                       <td>{{user.hiring_date}}</td>
-                      <td><button type="button" class="btn btn-danger" (click)="delete(user.id)" >supprimer</button></td>
-                      <td><button type="button" class="btn btn-warning" routerLink="/modifier/{{user.id}}">modifier</button></td>
+                      <td><button type="button" class="btn_supprimer" (click)="delete(user.id)" >supprimer</button></td>
+                      <td><button type="button" class="btn_modifier" routerLink="/modifier/{{user.id}}">modifier</button></td>
                     </tr>
 
                   </tbody>
-                </table>              <hr class="my-4">
-
-                      </div>
-                  </div>
-
-    </div>
-</div><a style="font-size: 8pt; text-decoration: none" target="_blank" href="http://frontendfreecode.com"></a>
-
-
+                </table></div></div>
 

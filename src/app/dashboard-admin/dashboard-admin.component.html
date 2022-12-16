@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="./dashboard-admin.component.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-</head>
-<body>
+
     <div class="dashboard_content">
 <div class="dashboard_top">
     <div style="display:flex; flex-direction:row;justify-content: space-between;">
@@ -21,29 +12,27 @@
 
 
         </div>
-        <div class="dashboard_top_content_img">
-            <img src="../../assets/dashimg.png" alt="">
-        </div>
-    </div>
-</div>
 
     </div>
 
-    <table class="table">
+
+
+
+    <table class="table" >
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">first name</th>
-          <th scope="col">Last name</th>
-          <th scope="col">email</th>
-          <th scope="col">password</th>
-          <th scope="col">role</th>
-          <th scope="col">department</th>
-          <th scope="col">hiring_date</th>
+          <th scope="col">PRENOM</th>
+          <th scope="col">NOM</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">MOT DE PASSE</th>
+          <th scope="col">ROLE</th>
+          <th scope="col">DEPARTEMENT</th>
+          <th scope="col">DATE D'EMBAUCHE</th>
           <th scope="col">Status</th>
-          <th scope="col">Supprimer</th>
-          <th scope="col">Modifer</th>
-          <th scope="col">Accepter/Refuser</th>
+          <th scope="col">SUPPRIMER</th>
+          <th scope="col">MODIFIER</th>
+          <th scope="col">ACCEPTER/REFUSER</th>
 
 
         </tr>
@@ -58,17 +47,20 @@
           <td>{{user.role}}</td>
           <td>{{user.dept}}</td>
           <td>{{user.hiring_date}}</td>
-          <td>{{user.status}}</td>
+          <td ><button type="button" class="btn_stat" disabled>{{Rstatus(user.status)}}</button></td>
 
-          <td><button type="button" class="btn btn-danger" (click)="delete(user.id)" >supprimer</button></td>
-          <td><button type="button" class="btn btn-warning" routerLink="/modifier/{{user.id}}">modifier</button></td>
+          <td><button type="button" class="btn_supprimer" (click)="delete(user.id)" >SUPPRIMER</button></td>
+          <td><button type="button" class="btn_modifier" routerLink="/modifier/{{user.id}}">MODIFIER</button></td>
 
-          <td><button type="button" class="btn btn-success" (click)="accepter(user)" >Accepter</button></td>
+          <td>
+            <button type="button" class="btn_acc" (click)="accepter(user)" >ACCEPTER</button>
+            <button type="button" class="btn_ref" (click)="refuser(user)" >REFUSER</button>
+          </td>
 
         </tr>
 
       </tbody>
     </table>
+  </div></div>
 
-</body>
-</html>
+

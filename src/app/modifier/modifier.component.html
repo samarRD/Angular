@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Ajouter utilisateur</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <b><img src="assets/img/domicialisation.jpg" text="mezzo-hr" alt="50px" width="50px" height="50px"></b>
-    <div class="bg-image"
-    style="background-image: url('https://www.codeur.com/tuto/wp-content/uploads/2022/01/pexels-roberto-nickson-2559941-1.jpg');
-           height: 100vh">
-</div>
-  </head>
 
-<body>
+    <title> Ajouter utilisateur</title>
+<link rel="stylesheet" href="modifier.component.css">
+
+
+<div class="page">
 
 
       <form [formGroup]="Modifierform" (ngSubmit)="onSubmit()" *ngIf="C">
-        <div style="display:flex ;flex-direction:row;justify-content: space-between;">
+        <div style="display:flex ;flex-direction:row;margin-left: 20px;">
             <div class="input_container">
                 <label for="firstName"><p>Nom</p></label>
                 <input type="text" formControlName="firstName" placeholder="Nom..." >
@@ -35,7 +25,7 @@
 
             </div>
         </div>
-        <div style="display:flex ;flex-direction:row;justify-content: space-between;">
+        <div style="display:flex ;flex-direction:row;margin-left: 20px;">
             <div class="input_container">
               <label for="Role"><p>Votre Role </p></label>
               <select name="role" formControlName="role" >
@@ -51,7 +41,7 @@
                 <small *ngIf="Modifierform.controls['email'].hasError('email')">*email invalid</small></div>
 
         </div>
-        <div style="display:flex ;flex-direction:row;justify-content:space-between;">
+        <div style="display:flex ;flex-direction:row;margin-left: 20px;">
             <div class="input_container">
                 <label for="password"><p>Mot de passe</p></label>
                 <input type="password" formControlName="password" placeholder="Mot de passe..." >
@@ -68,7 +58,7 @@
 
               </div>
         </div>
-        <div style="display:flex ;flex-direction:row;justify-content:space-between;">
+        <div style="display:flex ;flex-direction:row;margin-left: 20px;">
             <div class="input_container">
                 <label for="hiringDate"><p>Date d'embauche </p></label>
                 <input type="date" formControlName="hiringDate" >
@@ -94,11 +84,11 @@
 
               </div>
         </div>
-        <div style="display:flex;justify-content: center;margin-top: 40px;" >
+        <div style="margin-left: 100px;margin-top: 40px;" >
             <button class="buttonSubmit" type="submit "  > Modifier</button>
           </div>
 
         </form>
 
-</body>
-</html>
+</div>
+

@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  font-family:'Roboto',Arial, Helvetica, sans-serif;
+}
+body{
+  font-size: 5mm;
+  background-image:url(./assets/bg1.jpg) ;
+background-color: #050050;
+-webkit-background-size:cover;
+-o-background-size:cover;
+-moz-background-size:cover;
+background-size:cover;
+margin: 0;
+}

@@ -1,19 +1,10 @@
 
-body{
-  margin: 0px;
-  height: 950PX;
-  width: 100%;
-  font-size: 5mm;
+.page{
+
+  font-size: 4mm;
   flex-direction: row;
-  font-family:'Roboto',Arial, Helvetica, sans-serif;
   display: flex;
   justify-content: center;
-background-image:url(../../assets/bg1.jpg) ;
-background-color: #050050;
--webkit-background-size:cover;
--o-background-size:cover;
--moz-background-size:cover;
-background-size:cover;
 }
 
 .form_box{
@@ -26,19 +17,20 @@ background-size:cover;
   align-items: center;
   min-width: fit-content;
   border-radius: 10px;
-  padding: 40px ;
+  padding: 20px ;
   box-shadow: 1px 1px 10px #888888;
 }
 .logo_container h1 {
   font-weight: bolder;
-  font-size: 19mm;
+  font-size: 15mm;
  text-align: center;
 }
 .logo_container span{
-  color:#192953a1 ;}
+  color:#a8aab1da ;}
 p{
-  margin:10px 0 10px 0;
+  margin:8px 0 8px 0;
   font-weight: bold;
+  font-size: 4mm;
 }
 
 
@@ -50,7 +42,7 @@ p{
 }
 input,select{
   width: 300px;
-  height: 60px;
+  height: 50px;
   border-style:solid;
   border-width: 1px;
   border-color: #88888885;
@@ -62,10 +54,9 @@ input,select{
 
 .buttonSubmit{
   cursor: pointer;
-  padding: 20px 80px;
+  padding: 10px 80px;
   border-radius:10px ;
   background-color:rgb(19, 19, 75) ;
-  margin-bottom: 5px;
   font-size: 6mm;
   border: none;
   color: white;

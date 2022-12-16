@@ -37,4 +37,19 @@ export class DashboardAdminComponent implements OnInit {
       alert('User Updated Successfully');
       window.location.reload();});
   }
+  refuser(user : any){
+    user.status = false;
+    this.UserService.Update(user).subscribe((data) => {
+      alert('User Updated Successfully');
+      window.location.reload();});
+  }
+  Rstatus(status:any){
+    if(status){
+      return "Accepter"
+    }
+    else if(status == false){
+      return "Refuser"
+    }
+    else return "En cours"
+  }
 }
