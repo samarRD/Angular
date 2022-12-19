@@ -2,23 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './../Service/user.service';
 
 @Component({
-  selector: 'app-interfaceprofil',
-  templateUrl: './interfaceprofil.component.html',
-  styleUrls: ['./interfaceprofil.component.css']
+  selector: 'app-dashboard-rh',
+  templateUrl: './dashboard-rh.component.html',
+  styleUrls: ['./dashboard-rh.component.css']
 })
-export class InterfaceprofilComponent implements OnInit {
+export class DashboardRhComponent implements OnInit {
 
   constructor(private UserService : UserService) { }
-  userData : any ={};
+  userData : any =[];
   ngOnInit(): void {
     this.refreshProfile()
   }
   refreshProfile(){
-    const id = this.UserService.getToken();
+    this.UserService.getAll().subscribe(res => {
+      res.forEach((user: any) => {
+        if(user.role != "Admin"){
+          this.userData.push(user);
+        }
+      });
 
-    this.UserService.get(id).subscribe(res=>{
-      this.userData = res;
-    });
+      });
+
   }
   // confiramtion(){
   //confiramtion du compte

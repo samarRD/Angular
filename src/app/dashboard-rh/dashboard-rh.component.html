@@ -1,0 +1,42 @@
+<div class="page">
+<nav class="navbar navbar-rouge">
+  <a class="navbar-brand"></a>
+    <marquee behavior="alternate">
+      <div class="logo_container">
+        <h1>ME<span>ZZ</span>O HR DASHBOARD RH</h1>
+    </div>
+        </marquee>
+</nav>
+    <div id="content" class="content">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">PRENOM</th>
+                      <th scope="col">NOM</th>
+                      <th scope="col">EMAIL</th>
+                      <th scope="col">ROLE</th>
+                      <th scope="col">DEPARTEMENT</th>
+                      <th scope="col">DATE D'EMBAUCHE</th>
+                      <th scope="col">SUPPRIMER</th>
+                      <th scope="col">MODIFIER</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let user of userData">
+                      <th scope="row">{{user.id}}</th>
+                      <td>{{user.firstname}}</td>
+                      <td>{{user.lastname}}</td>
+                      <td>{{user.email}}</td>
+                      <td>{{user.role}}</td>
+                      <td>{{user.dept}}</td>
+                      <td>{{user.hiring_date}}</td>
+                      <td><button type="button" class="btn_supprimer" (click)="delete(user.id)" >supprimer</button></td>
+                      <td><button type="button" class="btn_modifier" routerLink="/modifier/{{user.id}}">modifier</button></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+

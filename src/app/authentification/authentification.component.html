@@ -21,12 +21,10 @@
                 <small *ngIf="authentification.controls['password'].touched &&authentification.controls['password'].hasError('required')">saisir un mot de passe </small>
                 <div *ngIf="isSubmitted &&authentification.controls['password'].errors">
                 <small *ngIf="authentification.controls['password'].hasError('minLength')">*mot de passe invalide</small>
-             </div></div>
-
-
-        <div style="display:flex;justify-content: center;margin-top: 40px;" >
+             </div>
+            </div>
+          <div style="display:flex;justify-content: center;margin-top: 40px;" >
             <button class="buttonSubmit" type="submit" [disabled]="!authentification.valid" >Connexion</button>
-
           </div>
           <div> <a class="link" routerLink="/Inscription">Créer un compte </a></div>
         </form>

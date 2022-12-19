@@ -10,6 +10,7 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import { ModifierComponent } from './modifier/modifier.component';
 import { InterfaceprofilComponent } from './interfaceprofil/interfaceprofil.component';
 import { HomeComponent } from './home/home.component';
+import { DashboardRhComponent } from './dashboard-rh/dashboard-rh.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HomeComponent } from './home/home.component';
     DashboardAdminComponent,
     ModifierComponent,
     InterfaceprofilComponent,
-    HomeComponent],
+    HomeComponent,
+    DashboardRhComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,ReactiveFormsModule,FormsModule,HttpClientModule

@@ -22,8 +22,8 @@ export class AuthGuard implements CanActivate {
     if(this.authService.getToken() === null) {
       alert("Access Denied !!!");
       this.router.navigate(['/authentification'], { queryParams: { returnUrl: state.url } })
-
     }
+    
     return true;
   }
 

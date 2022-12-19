@@ -11,13 +11,11 @@ export class DashboardAdminComponent implements OnInit {
   constructor(private UserService : UserService) { }
   userData : any =[];
   ngOnInit(): void {
-    this.refreshProfile()
+    this.refreshUsers()
   }
-  refreshProfile(){
-    this.UserService.getAll().subscribe(res => {
+  refreshUsers(){
+    this.UserService.getAll().subscribe((res:any) => {
       this.userData = res;
-      console.log(this.userData);
-
     })
 
   }
@@ -26,7 +24,7 @@ export class DashboardAdminComponent implements OnInit {
   delete(id : number){
    if(confirm("Are you sure to delete this user?")){
      this.UserService.Delete(id).subscribe(res => {
-       this.refreshProfile();
+       this.refreshUsers();
      })
    }
   }
@@ -34,13 +32,13 @@ export class DashboardAdminComponent implements OnInit {
   accepter(user : any){
     user.status = true;
     this.UserService.Update(user).subscribe((data) => {
-      alert('User Updated Successfully');
+      alert('User Accepted Successfully');
       window.location.reload();});
   }
   refuser(user : any){
     user.status = false;
     this.UserService.Update(user).subscribe((data) => {
-      alert('User Updated Successfully');
+      alert('User Refused Successfully');
       window.location.reload();});
   }
   Rstatus(status:any){
