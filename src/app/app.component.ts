@@ -35,4 +35,13 @@ isUserAuthenticated() {
       return false;
     }
   }
+
+    UserAuthenticated() {
+      const User: string = this.UserService.getEmail() as string;
+      if (User != null) {
+        return User;
+      } else {
+        return "User";
+      }
+    }
 }

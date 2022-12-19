@@ -17,7 +17,7 @@ const routes: Routes = [
  {path : 'admin' , component : DashboardAdminComponent ,canActivate:[AuthGuard],data: {
   role: ['Admin']
 }},
- {path : 'home' , component : HomeComponent ,canActivate:[AuthGuard]},
+ {path : 'home' , component : HomeComponent},
 
 
  {path : "rh" , component : InterfaceprofilComponent,canActivate:[AuthGuard],data: {

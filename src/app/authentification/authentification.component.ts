@@ -42,7 +42,7 @@ export class AuthentificationComponent implements OnInit {
       next: (data :any) =>{
        if(data !== null){
         if(data.status == true){
-          this.userService.saveToken(data.id,data.role);
+          this.userService.saveToken(data.id,data.role,data.email);
           this.route.navigate(['/home']);
         }else{
           alert("vous n'ete pas accepter d'aprés l'admin");
