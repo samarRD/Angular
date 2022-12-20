@@ -9,6 +9,10 @@ background-color: #050050;
 -webkit-background-size:cover;
 -o-background-size:cover;
 -moz-background-size:cover;
+background-repeat: no-repeat;
 background-size:cover;
 margin: 0;
 }
+
+
+

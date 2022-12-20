@@ -8,7 +8,7 @@
             <h1>INSCRIPTION</h1>
         </div>
         <form [formGroup]="Inscriptionform" (ngSubmit)="onSubmit()">
-        <div style="display:flex ;flex-direction:row;justify-content: space-between;">
+        <div class="div">
             <div class="input_container">
                 <label for="firstName"><p>Nom</p></label>
                 <input type="text" formControlName="firstName" placeholder="Nom...">
@@ -26,7 +26,7 @@
 
             </div>
         </div>
-        <div style="display:flex ;flex-direction:row;justify-content: space-between;">
+        <div class="div">
             <div class="input_container">
               <label for="Role"><p>Votre Role </p></label>
               <select name="role" formControlName="role" >
@@ -42,7 +42,7 @@
                 <small *ngIf="Inscriptionform.controls['email'].hasError('email')">*email invalid</small></div>
 
         </div>
-        <div style="display:flex ;flex-direction:row;justify-content:space-between;">
+        <div class="div">
             <div class="input_container">
                 <label for="password"><p>Mot de passe</p></label>
                 <input type="password" formControlName="password" placeholder="Mot de passe...">
@@ -59,7 +59,7 @@
 
               </div>
         </div>
-        <div style="display:flex ;flex-direction:row;justify-content:space-between;">
+        <div class="div" >
             <div class="input_container">
                 <label for="hiringDate"><p>Date d'embauche </p></label>
                 <input type="date" formControlName="hiringDate" >

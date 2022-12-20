@@ -13,10 +13,15 @@
   color:#192953a1 ;}
 .content{
   display: block;
-  background-color: #eee5e5ab;
   align-items: center;
   min-width: fit-content;
-  box-shadow: 1px 1px 10px #888888;
+}
+.dashboard_top{
+  box-shadow: 1px 4px 10px #888888;
+  background-color: #ffffff6e;
+  padding: 20px;
+  display: block;
+  min-width: fit-content;
 }
 .btn_supprimer{
   cursor: pointer;
