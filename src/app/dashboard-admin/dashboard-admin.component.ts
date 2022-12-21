@@ -23,7 +23,6 @@ export class DashboardAdminComponent implements OnInit {
     })
 
   }
-  // confiramtion(){
   //confiramtion du compte
   delete(id : number){
    if(confirm("Are you sure to delete this user?")){
@@ -54,9 +53,10 @@ export class DashboardAdminComponent implements OnInit {
     }
     else return "En cours"
   }
+
+
   FilterFn(){
     var UserEmailFilter = this.UserEmailFilter;
-
     this.userData = this.UserListWithoutFilter.filter(function(el:any){
       return el.firstname.toString().toLowerCase().includes(
         UserEmailFilter.toString().trim().toLowerCase()
