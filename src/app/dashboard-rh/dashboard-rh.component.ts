@@ -11,12 +11,13 @@ export class DashboardRhComponent implements OnInit {
   constructor(private UserService : UserService) { }
   userData : any =[];
   ngOnInit(): void {
-    this.refreshProfile()
+    this.refreshUsers()
   }
-  refreshProfile(){
+  //get All users
+  refreshUsers(){
     this.UserService.getAll().subscribe(res => {
       res.forEach((user: any) => {
-        if(user.role != "Admin"){
+        if(user.role != "Admin" && user.status !== false){
           this.userData.push(user);
         }
       });
@@ -26,12 +27,11 @@ export class DashboardRhComponent implements OnInit {
   }
   // confiramtion(){
   //confiramtion du compte
-  delete(id : number){
-   if(confirm("Are you sure to delete this user?")){
-     this.UserService.Delete(id).subscribe(res => {
-       this.refreshProfile();
-     })
-   }
+  delete(user : any){
+    user.status = false;
+    this.UserService.Update(user).subscribe((data) => {
+      alert('User Deleted Successfully');
+      window.location.reload();});
   }
 
 }

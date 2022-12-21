@@ -17,12 +17,15 @@ export class UserService {
 
   constructor(private http:HttpClient){  }
 
+  // Authentification
   login(data :{email : string,password : string}): Observable<any>{
     return this.http.post("http://localhost:8080/user/findbyep", data)
   }
   register(user : any): Observable<any> {
     return this.http.post(APIUrlUser,user);
   }
+
+  //Crud User
   get(id: any): Observable<any> {
     return this.http.get(`${APIUrlUser}/${id}`);
   }
@@ -40,6 +43,7 @@ export class UserService {
     window.sessionStorage.clear();
   }
 
+  // Save the user In session stoage
   public saveToken(id :string,role : string,email : string): void {
     window.sessionStorage.removeItem(ID_KEY);
     window.sessionStorage.setItem(ID_KEY, id);
@@ -49,6 +53,7 @@ export class UserService {
 
   }
 
+  // get the user from session stoage
   public getToken(): string | null {
     return window.sessionStorage.getItem(ID_KEY) !== null ? window.sessionStorage.getItem(ID_KEY) : null  ;
   }

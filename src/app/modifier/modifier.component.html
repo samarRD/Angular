@@ -1,7 +1,5 @@
 
     <title> Ajouter utilisateur</title>
-<link rel="stylesheet" href="modifier.component.css">
-
 
 <div class="page">
 
@@ -35,10 +33,8 @@
 
             <div class="input_container">
                 <label for="email"><p>Email</p></label>
-                <input type="email"formControlName="email" placeholder="exemple@exemple.com...">
-                <small *ngIf="Modifierform.controls['email'].touched &&Modifierform.controls['email'].hasError('required')" >*saisir un email</small>
-
-                <small *ngIf="Modifierform.controls['email'].hasError('email')">*email invalid</small></div>
+                <input type="email" formControlName="email" placeholder="exemple@exemple.com...">
+            </div>
 
         </div>
         <div style="display:flex ;flex-direction:row;margin-left: 20px;">

@@ -10,12 +10,16 @@ export class DashboardAdminComponent implements OnInit {
 
   constructor(private UserService : UserService) { }
   userData : any =[];
+  UserEmailFilter:string="";
+  UserListWithoutFilter:any=[];
   ngOnInit(): void {
     this.refreshUsers()
   }
   refreshUsers(){
     this.UserService.getAll().subscribe((res:any) => {
       this.userData = res;
+      this.UserListWithoutFilter=res;
+
     })
 
   }
@@ -49,5 +53,14 @@ export class DashboardAdminComponent implements OnInit {
       return "Refuser"
     }
     else return "En cours"
+  }
+  FilterFn(){
+    var UserEmailFilter = this.UserEmailFilter;
+
+    this.userData = this.UserListWithoutFilter.filter(function(el:any){
+      return el.firstname.toString().toLowerCase().includes(
+        UserEmailFilter.toString().trim().toLowerCase()
+      )
+    });
   }
 }

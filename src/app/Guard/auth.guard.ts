@@ -18,12 +18,13 @@ export class AuthGuard implements CanActivate {
         alert("Access Denied to non-owned role!!!");
         return false;
       }
+      //check user is logged in or not
 
     if(this.authService.getToken() === null) {
       alert("Access Denied !!!");
       this.router.navigate(['/authentification'], { queryParams: { returnUrl: state.url } })
     }
-    
+
     return true;
   }
 

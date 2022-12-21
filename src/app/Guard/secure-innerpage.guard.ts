@@ -11,8 +11,9 @@ export class SecureInnerpageGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+      //check user is logged in or not
     if(this.tokenStorageService.getToken() !== null) {
-      alert("Access Denied !!!");
+      alert("Access Denied, You are Already Logged in !!!");
       this.router.navigate(['/home']);
     }
     return true;

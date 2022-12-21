@@ -67,7 +67,7 @@ export class InscriptionFormComponent implements OnInit {
 
 
 
-
+      // get bindings variables for the form
        get email(){
         return this.Inscriptionform.get("email");
       }
@@ -92,7 +92,7 @@ export class InscriptionFormComponent implements OnInit {
 
 
 
-
+      // Create the user
     onSubmit(){
 
       this.isSubmitted = true;
@@ -110,7 +110,7 @@ export class InscriptionFormComponent implements OnInit {
 
         this.userService.register(user).subscribe({
           next: (data :any) =>{
-            this.router.navigate(['/login']);
+            this.router.navigate(['/authentification']);
           },
           error: (err : any) => {
             console.log(err.message)

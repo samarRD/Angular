@@ -52,7 +52,7 @@ export class ModifierComponent implements OnInit {
           Validators.pattern('[a-zA-Z ]*'),
         ]),
         role: new FormControl(this.C?.role, [Validators.required]),
-        email: new FormControl(this.C?.email, [Validators.required, Validators.email]),
+        email: new FormControl({value : this.C?.email,disabled : true}),
         password: new FormControl(this.C?.password, [
           Validators.required,
           Validators.minLength(8),

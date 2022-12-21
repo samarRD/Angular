@@ -15,6 +15,7 @@ export class AuthentificationComponent implements OnInit {
   constructor(private userService : UserService,private route : Router) { }
 
   ngOnInit(): void {
+    //validators
     this.authentification= new FormGroup({
 
       email:new FormControl('',[Validators.required,Validators.email]),
@@ -30,37 +31,38 @@ export class AuthentificationComponent implements OnInit {
       get password(){
         return this.authentification.get("password")
       }
+
+    // login form submit
     onSubmit(){
-
-
       const LoginInfo = {'email' : this.email?.value,'password' : this.password?.value};
       this.isSubmitted=true;
       console.log(this.authentification)
-  if (!this.authentification.invalid) {
-    this.userService.login(LoginInfo)
-    .subscribe({
-      next: (data :any) =>{
-       if(data !== null){
-        if(data.status == true){
-          this.userService.saveToken(data.id,data.role,data.email);
-          this.route.navigate(['/home']);
-        }else{
-          alert("vous n'ete pas accepter d'aprés l'admin");
-        }
-       }else{
-       alert("The user name or password are incorrect. This is easily corrected by typing the correct user name and password.❌");
-       }
-      },
-      error: (err : Error) => {
-        this.errorMessage = err.message;
-        console.log(err)
+      if (!this.authentification.invalid) {
+        //Send request
+        this.userService.login(LoginInfo)
+        .subscribe({
+          next: (data :any) =>{
+          if(data !== null){
+            if(data.status == true){
+              this.userService.saveToken(data.id,data.role,data.email);
+              this.route.navigate(['/home']);
+            }else{
+              alert("vous n'ete pas accepter d'aprés l'admin");
+            }
+          }else{
+          alert("The user name or password are incorrect. This is easily corrected by typing the correct user name and password.❌");
+          }
+          },
+          error: (err : Error) => {
+            this.errorMessage = err.message;
+            console.log(err)
+          }
+        });
       }
-    });
-  }
-  else{
-    console.log("Enter a valid informations !!!", '❌');
+      else{
+        console.log("Enter a valid informations !!!", '❌');
 
-  }
+      }
     }
 
   }
