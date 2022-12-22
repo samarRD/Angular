@@ -11,6 +11,8 @@ import { ModifierComponent } from './modifier/modifier.component';
 import { InterfaceprofilComponent } from './interfaceprofil/interfaceprofil.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardRhComponent } from './dashboard-rh/dashboard-rh.component';
+import { ListUsersComponent } from './admin/list-users/list-users.component';
+import { PerformanceUsersComponent } from './admin/performance-users/performance-users.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { DashboardRhComponent } from './dashboard-rh/dashboard-rh.component';
     ModifierComponent,
     InterfaceprofilComponent,
     HomeComponent,
-    DashboardRhComponent],
+    DashboardRhComponent,
+    ListUsersComponent,
+    PerformanceUsersComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,ReactiveFormsModule,FormsModule,HttpClientModule
