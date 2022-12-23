@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { DashboardRhComponent } from './dashboard-rh/dashboard-rh.component';
 import { ListUsersComponent } from './admin/list-users/list-users.component';
 import { PerformanceUsersComponent } from './admin/performance-users/performance-users.component';
+import { InterfaceEmployeeComponent } from './Employee/interface-employee/interface-employee.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PerformanceUsersComponent } from './admin/performance-users/performance
     HomeComponent,
     DashboardRhComponent,
     ListUsersComponent,
-    PerformanceUsersComponent],
+    PerformanceUsersComponent,
+    InterfaceEmployeeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,ReactiveFormsModule,FormsModule,HttpClientModule
