@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-admin.component.css']
 })
 export class DashboardAdminComponent implements OnInit {
-  variable ='users';
+  page : string = "users";
 
   ngOnInit(): void {
+
   }
-  change(type:string){
-    this.variable = type;
-   }
+   sidebarExpanded = true;
+
+
+   PageNavigation(newPage: string) {
+    this.page = newPage
+  }
 
 }
