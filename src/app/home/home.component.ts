@@ -10,17 +10,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  challenge !: challenge [] ;
+  challenges !: challenge [] ;
   c :challenge = new challenge();
-  constructor(private service : ServiceChallengeService , private route: Router) { }
+  constructor(private service : ServiceChallengeService , private route: Router,private userService : UserService) { }
 
   ngOnInit(): void {
     this.Loadchallenge();
   }
   Loadchallenge (){
     this.service.getAllChallenges().subscribe(data=>{
-      this.challenge = data
+      this.challenges = data
     });
+  }
+
+  participer(c : challenge){
+   const id = this.userService.getToken();
+   this.service.UpdateUserChallenge(c,id).subscribe((res :any) =>{
+    alert(" you are participated");
+   })
   }
 
 

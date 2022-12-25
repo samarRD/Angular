@@ -19,7 +19,12 @@ private APIUrlChallenge="http://localhost:8080/challenge"
 
   UpdateChallenge(c:challenge) {
 
-    return this.http.put<challenge>(this.APIUrlChallenge + '/' + c.id, c);
+    return this.http.put<challenge>(this.APIUrlChallenge, c);
+  }
+
+  UpdateUserChallenge(c:challenge,id :any) {
+
+    return this.http.put<challenge>(this.APIUrlChallenge + '/' + id, c);
   }
 
   DeleteChallenge(id: number) {
