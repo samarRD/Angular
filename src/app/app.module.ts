@@ -14,6 +14,9 @@ import { DashboardRhComponent } from './dashboard-rh/dashboard-rh.component';
 import { ListUsersComponent } from './admin/list-users/list-users.component';
 import { PerformanceUsersComponent } from './admin/performance-users/performance-users.component';
 import { InterfaceEmployeeComponent } from './Employee/interface-employee/interface-employee.component';
+import { SideBarComponent } from './admin/side-bar/side-bar.component';
+import { ListUsersRhComponent } from './Rh/list-users-rh/list-users-rh.component';
+import { ListCongeComponent } from './Rh/list-conge/list-conge.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { InterfaceEmployeeComponent } from './Employee/interface-employee/interf
     DashboardRhComponent,
     ListUsersComponent,
     PerformanceUsersComponent,
-    InterfaceEmployeeComponent],
+    InterfaceEmployeeComponent,
+    SideBarComponent,
+    ListUsersRhComponent,
+    ListCongeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,ReactiveFormsModule,FormsModule,HttpClientModule

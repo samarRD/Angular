@@ -1,48 +1,17 @@
-<div class="page">
-<nav class="navbar navbar-rouge">
-  <a class="navbar-brand"></a>
-    <marquee behavior="alternate">
-      <div class="logo_container">
-        <h1>ME<span>ZZ</span>O HR DASHBOARD RH</h1>
-    </div>
-        </marquee>
-</nav>
 
-    <div id="content" class="content">
-      <div class="dashboard_top">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">PRENOM</th>
-                      <th scope="col">NOM</th>
-                      <th scope="col">EMAIL</th>
-                      <th scope="col">ROLE</th>
-                      <th scope="col">DEPARTEMENT</th>
-                      <th scope="col">DATE D'EMBAUCHE</th>
-                      <th scope="col">SUPPRIMER</th>
-                      <th scope="col">MODIFIER</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let user of userData">
-                      <th scope="row">{{user.id}}</th>
-                      <td>{{user.firstname}}</td>
-                      <td>{{user.lastname}}</td>
-                      <td>{{user.email}}</td>
-                      <td>{{user.role}}</td>
-                      <td>{{user.dept}}</td>
-                      <td>{{user.hiring_date}}</td>
-                      <td><button type="button" class="btn_supprimer" (click)="delete(user)" >supprimer</button></td>
-                      <td><button type="button" class="btn_modifier" routerLink="/modifier/{{user.id}}">modifier</button></td>
-                    </tr>
-
-                  </tbody>
-                </table>
-              </div></div>
+            <my-sidebar [isExpanded]="sidebarExpanded" (pageName)="PageNavigation($event)" (toggleSidebar)="sidebarExpanded = !sidebarExpanded"></my-sidebar>
+            <div class="content" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
             </div>
 
 
+            <!--Main Navigation-->
+            <main style="margin-top: 58px">
+              <div class="container pt-4"  [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
+                <app-list-users-rh *ngIf="page == 'users'"></app-list-users-rh>
+                <app-performance-users *ngIf="page == 'performance'"></app-performance-users>
+                <app-list-conge *ngIf="page == 'conge'"></app-list-conge>
+              </div>
+            </main>
 
 
 
@@ -80,4 +49,3 @@
 
 
 
-         
