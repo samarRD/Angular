@@ -1,0 +1,59 @@
+
+<div class="page" >
+
+    <form (ngSubmit)="addChallenge()" class="form-center">
+
+        <div class="input_container">
+      <div class="form-group">
+        <label for="title"><p >Title</p></label>
+        <input required #title="ngModel" type="text" [(ngModel)]="c.title" class="form-control" id="title" name="title" placeholder="title..."  >
+        <span *ngIf="title.invalid && title.touched " class="error">title is required</span>
+      </div></div>
+      <div class="input_container">
+      <div class="form-group">
+        <label for="description"><p>Description</p></label>
+        <textarea type="text" [(ngModel)]="c.description"
+          class="form-control"
+          id="description"
+          name="description"
+          rows="5"
+          required
+          #description="ngModel"
+
+          placeholder="description ...."></textarea>
+          <span *ngIf="description.invalid && description.touched " class="error">description is required</span>
+
+      </div></div>
+      <div class="input_container">
+        <div class="form-group">
+          <label for="prime"><p>Prime</p></label>
+          <input type="text" [(ngModel)]="c.prime"
+            class="form-control"
+            id="prime"
+            name="prime"
+            #prime="ngModel"
+            required
+            placeholder="prime à gagner....">
+            <span *ngIf="prime.invalid && prime.touched " class="error">prime is required</span>
+
+        </div></div>
+        <div class="input_container">
+          <div class="form-group">
+            <label for="image"><p>url de l'image</p></label>
+            <input type="text" [(ngModel)]="c.image"
+              class="form-control"
+              id="image"
+              required
+              #url="ngModel"
+              name="image"
+
+              placeholder="url de l'image....">
+              <span *ngIf="url.invalid && url.touched " class="error">url is required</span>
+
+          </div></div>
+      <div  style="margin-left: 55px;margin-top: 40px;" >
+        <button [disabled]="c.title=='' || c.prime =='' || c.image=='' || c.description =='' " class="buttonSubmit" type="submit "  > add challenge</button>
+      </div>
+        </form>
+  </div>
+

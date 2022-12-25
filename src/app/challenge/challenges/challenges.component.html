@@ -1,0 +1,26 @@
+
+<main style="margin-top: 58px">
+  <div class="container pt-4">
+<div style="text-align: center;"><a routerLink="/addchallenge" class="btn btn-outline-info">add new challenge</a></div>
+    <div class="box" *ngFor="let challenge of challenge">
+<div><button type="button" class="btn_supprimer" (click)="deleteChallenge(challenge.id)" >supprimer</button>
+<button type="button" class="btn_modifier" (click)="updateChallenge(challenge.id)" >modifier</button></div>
+      <div class="logo_container" >
+
+        <h1> {{challenge.title}}</h1>
+        <h1>Pri<span>Me</span> à gag<span>ner</span> :</h1>
+        <h2> {{challenge.prime}}</h2>
+    </div>
+    <div style="display: flex;
+    flex-direction: column;">
+<div><img src="{{challenge.image}}" alt="" class="img"></div>
+
+<div style="background-color: #eee5e5;border-radius: 4px;"><p class="desc">{{challenge.description}}</p></div>
+
+
+</div>
+
+
+
+</div>
+

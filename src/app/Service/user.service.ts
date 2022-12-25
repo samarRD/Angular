@@ -13,8 +13,6 @@ const EMAIL_KEY ="auth-email";
   providedIn: 'root'
 })
 export class UserService {
-
-
   constructor(private http:HttpClient){  }
 
   // Authentification

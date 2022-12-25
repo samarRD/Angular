@@ -13,7 +13,9 @@ import { HomeComponent } from './home/home.component';
 import { DashboardRhComponent } from './dashboard-rh/dashboard-rh.component';
 import { ListUsersComponent } from './admin/list-users/list-users.component';
 import { PerformanceUsersComponent } from './admin/performance-users/performance-users.component';
-
+import { ChallengesComponent } from './challenge/challenges/challenges.component';
+import { AddChallengeComponent } from './challenge/add-challenge/add-challenge.component';
+import { UpdateChallengeComponent } from './challenge/update-challenge/update-challenge.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,12 @@ import { PerformanceUsersComponent } from './admin/performance-users/performance
     HomeComponent,
     DashboardRhComponent,
     ListUsersComponent,
-    PerformanceUsersComponent],
+    PerformanceUsersComponent,
+    ChallengesComponent,
+    AddChallengeComponent,
+    UpdateChallengeComponent,
+
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,ReactiveFormsModule,FormsModule,HttpClientModule

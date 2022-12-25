@@ -24,8 +24,9 @@
             ><span>Performance</span>
         </a>
         <a
+        (click)="change('challenges')" routerLinkActive="active"
            class="list-group-item list-group-item-action py-2 ripple"
-           ><i class="fas fa-lock fa-fw me-3"></i><span>Challange</span></a
+           ><i class="fas fa-lock fa-fw me-3"></i><span>Challenge</span></a
           >
         <a
            class="list-group-item list-group-item-action py-2 ripple"
@@ -49,10 +50,10 @@
   <div class="container pt-4">
 
 
-    
+
 <app-list-users *ngIf="variable == 'users'"></app-list-users>
 <app-performance-users *ngIf="variable == 'performance'"></app-performance-users>
-
+<app-challenges *ngIf="variable == 'challenges'"></app-challenges>
 
 
 
