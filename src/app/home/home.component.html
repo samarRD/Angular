@@ -25,6 +25,17 @@
         </marquee>
 </nav>
 
-    <div class="box" *ngFor="let challenge of challenge">
+    <div class="box" *ngFor="let challenge of challenges">
+            <div class="logo_container" >
+              <h1> {{challenge.title}}</h1>
+              <h1>Pri<span>Me</span> à gag<span>ner</span> :</h1>
+              <h2> {{challenge.prime}}</h2>
+              <button (click)="participer(challenge)">participer</button>
 
+          </div>
+          <div style="display: flex;
+          flex-direction: column;">
+      <div><img src="{{challenge.image}}" alt="" class="img"></div>
 
+      <div style="background-color: #eee5e5;border-radius: 4px;"><p class="desc">{{challenge.description}}</p></div>
+    </div>
