@@ -13,7 +13,6 @@ import { HomeComponent } from './home/home.component';
 import { DashboardRhComponent } from './dashboard-rh/dashboard-rh.component';
 import { ListUsersComponent } from './admin/list-users/list-users.component';
 import { PerformanceUsersComponent } from './admin/performance-users/performance-users.component';
-import { InterfaceEmployeeComponent } from './Employee/interface-employee/interface-employee.component';
 import { SideBarComponent } from './admin/side-bar/side-bar.component';
 import { ListUsersRhComponent } from './Rh/list-users-rh/list-users-rh.component';
 import { ListCongeComponent } from './Rh/list-conge/list-conge.component';
@@ -34,7 +33,6 @@ import { EmployeedashboardComponent } from './Employee/employeedashboard/employe
     DashboardRhComponent,
     ListUsersComponent,
     PerformanceUsersComponent,
-    InterfaceEmployeeComponent,
     SideBarComponent,
     ListUsersRhComponent,
     ListCongeComponent,
