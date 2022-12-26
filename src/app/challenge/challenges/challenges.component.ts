@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { ServiceChallengeService } from './../service-challenge.service';
 import { challenge } from './../challenge';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-challenges',
@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class ChallengesComponent implements OnInit {
 challenge !: challenge [] ;
   constructor(private service : ServiceChallengeService , private route:Router) { }
+  @Input() Role: string = "Admin";
 
 
   ngOnInit(): void {

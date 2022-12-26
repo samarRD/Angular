@@ -17,8 +17,7 @@ export class CongeService {
     return this.http.get<any[]>(APIUrlUser);
   }
   Update(data :any): Observable<any> {
-
-    return this.http.put(APIUrlUser,data);
+    return this.http.put(APIUrlUser+'/' +data.id,data);
   }
   Delete(id: any): Observable<any> {
     return this.http.delete(APIUrlUser +'/' +id);

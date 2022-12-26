@@ -20,6 +20,7 @@ import { ListCongeComponent } from './Rh/list-conge/list-conge.component';
 import { ChallengesComponent } from './challenge/challenges/challenges.component';
 import { AddChallengeComponent } from './challenge/add-challenge/add-challenge.component';
 import { UpdateChallengeComponent } from './challenge/update-challenge/update-challenge.component';
+import { EmployeedashboardComponent } from './Employee/employeedashboard/employeedashboard.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UpdateChallengeComponent } from './challenge/update-challenge/update-ch
     ListCongeComponent,
     ChallengesComponent,
     AddChallengeComponent,
-    UpdateChallengeComponent,],
+    UpdateChallengeComponent,
+    EmployeedashboardComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,ReactiveFormsModule,FormsModule,HttpClientModule

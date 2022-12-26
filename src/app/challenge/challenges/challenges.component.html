@@ -3,7 +3,7 @@
   <div class="container pt-4">
 <div style="text-align: center;"><a routerLink="/addchallenge" class="btn btn-outline-info">add new challenge</a></div>
     <div class="box" *ngFor="let challenge of challenge">
-<div><button type="button" class="btn_supprimer" (click)="deleteChallenge(challenge.id)" >supprimer</button>
+<div><button type="button" class="btn_supprimer" *ngIf="Role == 'Admin'"  (click)="deleteChallenge(challenge.id)" >supprimer</button>
 <button type="button" class="btn_modifier" (click)="updateChallenge(challenge.id)" >modifier</button></div>
       <div class="logo_container" >
 

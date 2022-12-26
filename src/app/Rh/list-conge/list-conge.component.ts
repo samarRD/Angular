@@ -10,41 +10,33 @@ import { CongeService } from './../../Service/conge.service';
 export class ListCongeComponent implements OnInit {
 
   constructor(private UserService : CongeService) { }
-  userData : any =[];
-  UserEmailFilter:string="";
-  UserListWithoutFilter:any=[];
+  CongeData : any =[];
+  CongeIdFilter:string="";
+  CongeListWithoutFilter:any=[];
   ngOnInit(): void {
     this.refreshUsers()
   }
 
   refreshUsers(){
     this.UserService.getAll().subscribe((res:any) => {
-      this.userData = res;
-      this.UserListWithoutFilter=res;
+      this.CongeData = res;
+      this.CongeListWithoutFilter=res;
 
     })
 
   }
-  //confiramtion du compte
-  delete(id : number){
-   if(confirm("Are you sure to delete this user?")){
-     this.UserService.Delete(id).subscribe(res => {
-       this.refreshUsers();
-     })
-   }
-  }
 
-  accepter(user : any){
-    user.status = true;
-    this.UserService.Update(user).subscribe((data) => {
-      alert('User Accepted Successfully');
-      window.location.reload();});
+  accepter(conge : any){
+    conge.status = true;
+    this.UserService.Update(conge).subscribe((data) => {
+      alert('conge Accepted Successfully');
+    });
   }
-  refuser(user : any){
-    user.status = false;
-    this.UserService.Update(user).subscribe((data) => {
-      alert('User Refused Successfully');
-      window.location.reload();});
+  refuser(conge : any){
+    conge.status = false;
+    this.UserService.Update(conge).subscribe((data) => {
+      alert('conge Refused Successfully');
+    });
   }
   Rstatus(status:any){
     if(status){
@@ -58,10 +50,10 @@ export class ListCongeComponent implements OnInit {
 
 
   FilterFn(){
-    var UserEmailFilter = this.UserEmailFilter;
-    this.userData = this.UserListWithoutFilter.filter(function(el:any){
+    var CongeIdFilter = this.CongeIdFilter;
+    this.CongeData = this.CongeListWithoutFilter.filter(function(el:any){
       return el.id.toString().toLowerCase().includes(
-        UserEmailFilter.toString().trim().toLowerCase()
+        CongeIdFilter.toString().trim().toLowerCase()
       )
     });
   }

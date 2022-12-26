@@ -12,6 +12,7 @@ import { AuthGuard } from './Guard/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { DashboardRhComponent } from './dashboard-rh/dashboard-rh.component';
 import { ChallengesComponent } from './challenge/challenges/challenges.component';
+import { EmployeedashboardComponent } from './Employee/employeedashboard/employeedashboard.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
  {path : 'home' , component : HomeComponent},
 
  {path : "profile" , component : InterfaceprofilComponent,canActivate:[AuthGuard],data: {
-  role: ['Responsable RH','Admin','Employé']
+  role: ['Responsable RH','Admin','Employé(e)']
 }},
  {path : "rh" , component : DashboardRhComponent,canActivate:[AuthGuard],data: {
   role: ['Responsable RH','Admin']
@@ -43,7 +44,9 @@ const routes: Routes = [
  {path : "modifier/:id" , component : ModifierComponent ,canActivate:[AuthGuard],data: {
   role: ['Responsable RH','Admin']
 }},
-
+{path : "EpmloyeeDashboard" , component : EmployeedashboardComponent ,canActivate:[AuthGuard],data: {
+  role: ['Employé(e)','Responsable RH','Admin']
+}},
 
 
 

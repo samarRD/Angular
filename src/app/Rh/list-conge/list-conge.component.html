@@ -26,8 +26,8 @@
                       </div>
 
                       <div class="d-flex ">
-                        <label for="emailfilter">Filter Employees with Email </label> &nbsp;&nbsp; : &nbsp;
-                        <input [(ngModel)]="UserEmailFilter" class="form-control" style="width: fit-content;"
+                        <label for="emailfilter">Filter Congé with Id </label> &nbsp;&nbsp; : &nbsp;
+                        <input [(ngModel)]="CongeIdFilter" class="form-control" style="width: fit-content;"
                         (keyup)="FilterFn()" placeholder="Filter">
                   </div>
 <br>
@@ -36,37 +36,25 @@
                         <thead>
                           <tr>
                             <th scope="col">#</th>
-                            <th scope="col">PRENOM</th>
-                            <th scope="col">NOM</th>
-                            <th scope="col">EMAIL</th>
-                            <th scope="col">MOT DE PASSE</th>
-                            <th scope="col">ROLE</th>
-                            <th scope="col">DEPARTEMENT</th>
-                            <th scope="col">DATE D'EMBAUCHE</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">SUPPRIMER</th>
-                            <th scope="col">MODIFIER</th>
+                            <th scope="col">date_debut</th>
+                            <th scope="col">date_fin</th>
+                            <th scope="col">typeconge</th>
+                            <th scope="col">status</th>
                             <th scope="col">ACCEPTER/REFUSER</th>
 
 
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let user of userData">
-                            <th scope="row">{{user.id}}</th>
-                            <td>{{user.date_debut}}</td>
-                            <td>{{user.date_fin}}</td>
-                            <td>{{user.status}}</td>
-                            <td>{{user.typeconge}}</td>
-                            <td>{{user.notifier}}</td>
-                            <td ><button type="button" class="btn_stat" disabled>{{Rstatus(user.status)}}</button></td>
-
-                            <td><button type="button" class="btn_supprimer" (click)="delete(user.id)" >SUPPRIMER</button></td>
-                            <td><button type="button" class="btn_modifier" routerLink="/modifier/{{user.id}}">MODIFIER</button></td>
-
+                          <tr *ngFor="let conge of CongeData">
+                            <th scope="row">{{conge.id}}</th>
+                            <td>{{conge.date_debut}}</td>
+                            <td>{{conge.date_fin}}</td>
+                            <td>{{conge.typeconge}}</td>
+                            <td ><button type="button" class="btn_stat" disabled>{{Rstatus(conge.status)}}</button></td>
                             <td>
-                              <button type="button" class="btn_acc" (click)="accepter(user)" >ACCEPTER</button>
-                              <button type="button" class="btn_ref" (click)="refuser(user)" >REFUSER</button>
+                              <button type="button" class="btn_acc" (click)="accepter(conge)" >ACCEPTER</button>
+                              <button type="button" class="btn_ref" (click)="refuser(conge)" >REFUSER</button>
                             </td>
 
                           </tr>

@@ -21,7 +21,9 @@
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" *ngIf="isUserAuthenticated() && role()=='Admin'" routerLink="admin">Dashbord admin</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" *ngIf="isUserAuthenticated()" routerLink="EpmloyeeDashboard">Dashbord Epmloyee</a>
+        </li>
         </ul>
         <ul class="navbar-nav ml-auto">
 

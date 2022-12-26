@@ -9,7 +9,7 @@ import { UserService } from './../Service/user.service';
 export class DashboardRhComponent implements OnInit {
 
   page : string = "users";
-
+  Role ="Rh"
    sidebarExpanded = true;
 
 
