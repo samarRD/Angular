@@ -47,10 +47,6 @@ const routes: Routes = [
 {path : "EpmloyeeDashboard" , component : EmployeedashboardComponent ,canActivate:[AuthGuard],data: {
   role: ['Employé(e)','Responsable RH','Admin']
 }},
-
-
-
-
 ];
 
 @NgModule({
