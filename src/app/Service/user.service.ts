@@ -63,4 +63,7 @@ export class UserService {
   }
 
 
+  getCongeByUser(id: any): Observable<any> {
+    return this.http.get(APIUrlUser+'/'+id+'/conges');
+  }
 }

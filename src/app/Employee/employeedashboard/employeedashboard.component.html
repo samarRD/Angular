@@ -7,5 +7,70 @@
 
 
 
-<div>Conge</div>
-// template add conge coplilot
+<div style="padding: 50px;" >
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"  >Ajout Congé</button>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nouveau Congé</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="addConges()">
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Date Debut:</label>
+              <input type="date" class="form-control" id="recipient-name" [(ngModel)]="addConge.date_debut"  [ngModelOptions]="{standalone: true}" >
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Date de Fin:</label>
+              <input type="date" class="form-control" id="recipient-name" [(ngModel)]="addConge.date_fin"  [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Type de Congé:</label>
+              <textarea class="form-control" id="message-text" [(ngModel)]="addConge.typeconge"  [ngModelOptions]="{standalone: true}"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Send message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <h1 class="display-4" style="color: aliceblue; text-align: center;">Liste Des congé Demander</h1>
+  <table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date de Debut</th>
+      <th scope="col">Date de Fin</th>
+      <th scope="col">Type Conge</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let conge of CongeList">
+        <th scope="row">{{conge.id}}</th>
+        <td>{{conge.date_debut}}</td>
+
+        <td>{{conge.date_fin}}</td>
+        <td>{{conge.typeconge}}</td>
+      <div hidden>  {{Rstatus(conge.status)}}</div>
+      <td>
+        <span [ngClass]="ClassConge" >{{Rstatus(conge.status)}}</span>
+      </td>
+    </tr>
+  </tbody>
+</table></div>

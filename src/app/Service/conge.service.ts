@@ -22,4 +22,7 @@ export class CongeService {
   Delete(id: any): Observable<any> {
     return this.http.delete(APIUrlUser +'/' +id);
   }
+  add(conge : any): Observable<any> {
+    return this.http.post(APIUrlUser,conge);
+  }
 }
