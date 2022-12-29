@@ -1,7 +1,29 @@
       <div>
-        Le challange que vous avez participer
-                        challange
-      </div>
+        <h1 class="display-4" style="color: aliceblue; text-align: center;">Liste Des Challenges</h1>
+  <table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">title</th>
+      <th scope="col">image</th>
+      <th scope="col">description</th>
+      <th scope="col">prime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let challenge of challenges ">
+      <td>{{challenge.id}}</td>
+        <th scope="row">{{challenge.title}}</th>
+        <td><img height="100px" width="100px" src="{{challenge.image}}" alt="" class="img"></td>
+        <td>{{challenge.description}}</td>
+        <td>{{challenge.prime}}</td>
+
+
+    </tr>
+  </tbody>
+</table></div>
+
+
 
 
 

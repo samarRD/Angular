@@ -1,6 +1,8 @@
+import { challenge } from './../../challenge/challenge';
 import { Component, OnInit } from '@angular/core';
+import { ServiceChallengeService } from 'src/app/challenge/service-challenge.service';
 import { CongeService } from 'src/app/Service/conge.service';
-import { UserService } from 'src/app/Service/user.service';
+import { UserService } from 'src/app/Service/user.service'
 
 @Component({
   selector: 'app-employeedashboard',
@@ -8,8 +10,9 @@ import { UserService } from 'src/app/Service/user.service';
   styleUrls: ['./employeedashboard.component.css']
 })
 export class EmployeedashboardComponent implements OnInit {
+  challenges !: challenge [] ;
+  constructor(private service : ServiceChallengeService, private userService : UserService,private congeService : CongeService ) { }
 
-  constructor(private userService : UserService,private congeService : CongeService) { }
   CongeList : any =[];
   ClassConge =""
   addConge = {
@@ -21,6 +24,14 @@ export class EmployeedashboardComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getConges();
+    this.Loadchallenge();
+  }
+  Loadchallenge(){
+    const id = this.userService.getToken();
+  this.service.getAllUserChallenge(id).subscribe((res : any)=>
+  {
+    this.challenges = res;
+  })
   }
 getConges(){
   const id = this.userService.getToken();

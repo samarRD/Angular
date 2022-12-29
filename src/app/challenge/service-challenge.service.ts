@@ -10,8 +10,14 @@ import { HttpClient } from '@angular/common/http';
 export class ServiceChallengeService {
 
 private APIUrlChallenge="http://localhost:8080/challenge"
+private APIUrlUserChallenge="http://localhost:8080/challenge/getchallenges"
+
+
 
   constructor(private http:HttpClient) { }
+  getAllUserChallenge(id:any){
+    return this.http.get<challenge[]>(this.APIUrlUserChallenge +'/'+id);
+  }
 
   getAllChallenges() {
     return this.http.get<challenge[]>(this.APIUrlChallenge);
@@ -37,4 +43,7 @@ private APIUrlChallenge="http://localhost:8080/challenge"
   getChallenge(id:number){
     return this.http.get<challenge>(this.APIUrlChallenge+"/"+id);
     }
+
+
+
 }
