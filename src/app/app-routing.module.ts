@@ -45,7 +45,7 @@ const routes: Routes = [
   role: ['Responsable RH','Admin']
 }},
 {path : "EpmloyeeDashboard" , component : EmployeedashboardComponent ,canActivate:[AuthGuard],data: {
-  role: ['Employé(e)','Responsable RH','Admin']
+  role: ['Employé(e)']
 }},
 ];
 

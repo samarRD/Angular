@@ -1,9 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="home" href="#">Mezzo HR</a>
+    <a class="navbar-brand"  href="#"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <a class="navbar-brand" routerLink="home" href="">
+      <img src="../assets/img/mezzo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+      Mezzo HR
+    </a>
+
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -22,7 +29,7 @@
           <a class="nav-link" routerLinkActive="active" *ngIf="isUserAuthenticated() && role()=='Admin'" routerLink="admin">Dashbord admin</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" *ngIf="isUserAuthenticated()" routerLink="EpmloyeeDashboard">Dashbord Epmloyee</a>
+          <a class="nav-link" routerLinkActive="active" *ngIf="isUserAuthenticated()&& role()=='Employé(e)'"  routerLink="EpmloyeeDashboard">Dashbord Epmloyee</a>
         </li>
         </ul>
         <ul class="navbar-nav ml-auto">
@@ -50,6 +57,76 @@
 </nav>
 <!-- Navbar -->
 <router-outlet></router-outlet>
+<br><br><br><br>
+<!-- Footer -->
+<footer class="text-center text-lg-start text-muted" style="background-color:  #1d1e2c;">
+  <!-- Section: Links  -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <div class="container text-center text-md-start mt-5 border-bottom">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3 text-secondary"></i>Mezoo
+          </h6>
+          <p>
+            Mezzo dispose de tous les outils du marché pour assister, accompagner et même augmenter le nombre de ses collaborateurs. Ils travaillent avec les meilleurs fournisseurs de solutions du marché et nos partenariats sont solides.
 
+          </p>
+        </div>
+        <!-- Grid column -->
 
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+           Our Products
+          </h6>
+          <p>
+            <a  class="text-reset">service après-vente
+            </a>
+          </p>
+          <p>
+            <a class="text-reset"> télévente</a>
+          </p>
+          <p>
+            <a  class="text-reset">télémarketing</a>
+          </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Contacs
+          </h6>
+          <p>
+            <a href="tel:+21631318100" class="text-reset">Call Us (+216) 31 318 100</a>
+          </p>
+          <p>
+            <a href="http://www.somezzo.com" class="text-reset">Our web site</a>
+          </p>
+          <p>
+            <a href="https://goo.gl/maps/5wEnpSUR6SvCxAcK7" class="text-reset">Tunis, Charguia</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color:  #1d1e2c;">
+    © 2022 Copyright:
+    <a class="text-reset fw-bold" href="/home">MezooHR.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 
